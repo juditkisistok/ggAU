@@ -15,14 +15,15 @@ au_color_palette = function(style = "darkblue", reverse = FALSE, colors = NA, ..
                          "darkred", "darkmagenta"),
 
     # light palettes
-    #lightblue = au_colors("blue", "turkis", "green", "yellow", "red", "magenta"),
-    lightblue = au_colors("blue", "yellow", "magenta"),
+    lightblue = au_colors("blue", "turkis", "green", "yellow", "red", "magenta"),
     lightpurple = au_colors("purple", "turkis", "green", "yellow", "red", "magenta"),
     lightcyan = au_colors("cyan", "turkis", "green", "yellow", "red", "magenta"),
 
     # continuous heatmap palettes
     hotandcold = au_colors("blue", "white", "red"),
-    hotandcold_dark = au_colors("darkblue", "darkwhite", "darkred")
+    hotandcold_dark = au_colors("darkblue", "darkwhite", "darkred"),
+    # palette for testing
+    test = au_colors("blue", "yellow", "magenta")
     )
 
   palette = palettes[[style]]
