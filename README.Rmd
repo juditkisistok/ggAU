@@ -70,7 +70,7 @@ cowplot::plot_grid(light_plot_fill, dark_plot_fill)
 
 It is also possible to define your own mix of colors - you can retrieve a vector of hex codes by color name. 
 
-```{r dpi = 300}
+```{r scale_fill_au-custom, dpi = 300}
 my_custom_style = c("blue", "yellow", "red")
 
 ggplot2::ggplot(iris_df, ggplot2::aes(x = Species, 

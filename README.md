@@ -95,4 +95,4 @@ ggplot2::ggplot(iris_df, ggplot2::aes(x = Species,
   scale_fill_au(discrete = T, style = "custom", colors = my_custom_style)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-scale_fill_au-custom-1.png" width="100%" />
