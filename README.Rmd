@@ -29,18 +29,13 @@ You can install the development version of ggAU from [GitHub](https://github.com
 devtools::install_github("juditkisistok/ggAU")
 ```
 
-## Example
-
-```{r example}
-library(ggAU)
-```
-
 ## Available color palettes
 
 ```{r palettes, fig.width = 10, fig.height = 5, dpi=300}
-unikn::seecol(au_color_palette(style = "dark"), main = "Dark", 
-              grid = F, rgb = F)
+library(ggAU)
 unikn::seecol(au_color_palette(style = "light"), main = "Light", 
+              grid = F, rgb = F)
+unikn::seecol(au_color_palette(style = "dark"), main = "Dark", 
               grid = F, rgb = F)
 unikn::seecol(au_color_palette(style = "hotandcold"), main = "Hot and cold", 
               grid = F, rgb = F)
@@ -48,4 +43,40 @@ unikn::seecol(au_color_palette(style = "hotandcold_dark"), main = "Hot and cold 
               grid = F, rgb = F)
 ```
 
+# Examples
+
+The `scale_fill_au` and `scale_color_au` functions allow you to apply the pre-defined color palettes. 
+
+The default color scheme is `light` and the default variable type is continuous. You can add `discrete = T` for categorical variable color schemes.
+
+```{r scale_fill_au-examples, fig.width=8, fig.height=4, dpi = 300}
+iris_df = dplyr::summarize(dplyr::group_by(iris, Species), 
+                           `Mean petal width` = mean(Petal.Width))
+
+light_plot_fill = ggplot2::ggplot(iris_df, ggplot2::aes(x = Species, 
+                                      y = `Mean petal width`, fill = Species)) +
+  ggplot2::geom_bar(stat = "identity") +
+  ggpubr::theme_pubr() +
+  scale_fill_au(discrete = T)
+
+dark_plot_fill = ggplot2::ggplot(iris_df, ggplot2::aes(x = Species, 
+                                     y = `Mean petal width`, fill = Species)) +
+  ggplot2::geom_bar(stat = "identity") +
+  ggpubr::theme_pubr() +
+  scale_fill_au(discrete = T, style = "dark")
+
+cowplot::plot_grid(light_plot_fill, dark_plot_fill)
+```
+
+It is also possible to define your own mix of colors - you can retrieve a vector of hex codes by color name. 
+
+```{r dpi = 300}
+my_custom_style = c("blue", "yellow", "red")
+
+ggplot2::ggplot(iris_df, ggplot2::aes(x = Species, 
+                                      y = `Mean petal width`, fill = Species)) +
+  ggplot2::geom_bar(stat = "identity") +
+  ggpubr::theme_pubr() +
+  scale_fill_au(discrete = T, style = "custom", colors = my_custom_style)
+```
 
