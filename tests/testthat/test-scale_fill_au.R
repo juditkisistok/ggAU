@@ -5,7 +5,7 @@ test_that("discrete built-in scale works", {
 
   g = ggplot_build(p)
 
-  expect_true(all(unique(g$data[[1]]["fill"]) == c("#003d73", "#00aba4", "#8bad3f")))
+  expect_true(all(unique(g$data[[1]]["fill"]) == c("#003d73", "#655a9f", "#37a0cb")))
 })
 
 test_that("custom discrete scale works", {

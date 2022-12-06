@@ -4,7 +4,7 @@
 #' @export
 #'
 #' @examples
-scale_fill_au <- function(aesthetics = "fill", style = "lightblue", reverse = FALSE, discrete = F,
+scale_fill_au <- function(aesthetics = "fill", style = "light", reverse = FALSE, discrete = F,
                           colors = NA, ..., breaks = waiver(), na.value = au_colors("grey")) {
   if (style == "custom") {
     palette = au_color_palette(style = "custom", reverse = reverse, colors = colors, ...)

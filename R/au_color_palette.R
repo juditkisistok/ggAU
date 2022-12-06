@@ -4,24 +4,19 @@
 #' @export
 #'
 #' @examples
-au_color_palette = function(style = "darkblue", reverse = FALSE, colors = NA, ...) {
+au_color_palette = function(style = "light", reverse = FALSE, colors = NA, ...) {
   palettes = list(
-    # dark palettes
-    darkblue = au_colors("darkblue", "darkturkis", "darkgreen", "darkorange",
-                         "darkred", "darkmagenta"),
-    darkpurple = au_colors("darkpurple", "darkturkis", "darkgreen", "darkorange",
-                           "darkred", "darkmagenta"),
-    darkcyan = au_colors("darkcyan", "darkturkis", "darkgreen", "darkorange",
-                         "darkred", "darkmagenta"),
+    dark = au_colors("darkblue", "darkpurple", "darkcyan",
+                     "darkturkis", "darkgreen", "darkorange",
+                     "darkred", "darkmagenta"),
 
-    # light palettes
-    lightblue = au_colors("blue", "turkis", "green", "yellow", "red", "magenta"),
-    lightpurple = au_colors("purple", "turkis", "green", "yellow", "red", "magenta"),
-    lightcyan = au_colors("cyan", "turkis", "green", "yellow", "red", "magenta"),
+    light = au_colors("blue", "purple", "cyan", "turkis", "green",
+                      "yellow", "red", "magenta"),
 
     # continuous heatmap palettes
     hotandcold = au_colors("blue", "white", "red"),
-    hotandcold_dark = au_colors("darkblue", "darkwhite", "darkred"),
+    hotandcold_dark = au_colors("darkblue", "white", "darkred"),
+
     # palette for testing
     test = au_colors("blue", "yellow", "red")
     )

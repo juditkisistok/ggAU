@@ -28,7 +28,8 @@ au_colors = function(...) {
     "magenta" = "#e2007a",
     "darkmagenta" = "#5f0030",
     "grey" = "#878787",
-    "darkgrey" = "#4b4b4a"
+    "darkgrey" = "#4b4b4a",
+    "white" = "#ffffff"
   )
 
   colors = c(...)

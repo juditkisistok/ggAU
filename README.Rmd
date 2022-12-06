@@ -34,3 +34,18 @@ devtools::install_github("juditkisistok/ggAU")
 ```{r example}
 library(ggAU)
 ```
+
+## Available color palettes
+
+```{r fig.width = 10, fig.height = 5, dpi=300}
+unikn::seecol(au_color_palette(style = "dark"), main = "Dark", 
+              grid = F, rgb = F)
+unikn::seecol(au_color_palette(style = "light"), main = "Light", 
+              grid = F, rgb = F)
+unikn::seecol(au_color_palette(style = "hotandcold"), main = "Hot and cold", 
+              grid = F, rgb = F)
+unikn::seecol(au_color_palette(style = "hotandcold_dark"), main = "Hot and cold (dark)", 
+              grid = F, rgb = F)
+```
+
+
