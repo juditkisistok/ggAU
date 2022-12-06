@@ -4,17 +4,18 @@
 #' @export
 #'
 #' @examples
-scale_fill_au <- function(style = "lightblue", reverse = FALSE, discrete = F,
-                          colors = NA, ...) {
+scale_fill_au <- function(aesthetics = "fill", style = "lightblue", reverse = FALSE, discrete = F,
+                          colors = NA, ..., breaks = waiver(), na.value = au_colors("grey")) {
   if (style == "custom") {
-    palette = au_color_palette(style = style, reverse = reverse, colors = colors, ...)
+    palette = au_color_palette(style = "custom", reverse = reverse, colors = colors, ...)
   } else {
     palette = au_color_palette(style = style, reverse = reverse, ...)
   }
 
   if (discrete) {
-    discrete_scale("fill", paste0("au_", style), palette = palette, ...)
+    scale_fill_manual(aesthetics, values = unname(palette), breaks, na.value = na.value)
   } else {
     scale_fill_gradientn(colours = palette(256), ...)
   }
 }
+

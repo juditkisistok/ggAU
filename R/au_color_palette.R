@@ -23,7 +23,7 @@ au_color_palette = function(style = "darkblue", reverse = FALSE, colors = NA, ..
     hotandcold = au_colors("blue", "white", "red"),
     hotandcold_dark = au_colors("darkblue", "darkwhite", "darkred"),
     # palette for testing
-    test = au_colors("blue", "yellow", "magenta")
+    test = au_colors("blue", "yellow", "red")
     )
 
   palette = palettes[[style]]
@@ -34,8 +34,8 @@ au_color_palette = function(style = "darkblue", reverse = FALSE, colors = NA, ..
   }
   # custom color palette
   if (style == "custom") {
-    colorRampPalette(au_colors(colors))
+    au_colors(colors)
   } else {
-    colorRampPalette(palette)
+    palette
   }
 }
