@@ -2,6 +2,6 @@ url: https://juditkisistok.github.io/ggAU/
 template:
   bootstrap: 5
   bootswatch: lux
+  theme: github-dark
   bslib:
     pkgdown-nav-height: 100px
-
