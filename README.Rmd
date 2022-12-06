@@ -37,7 +37,7 @@ library(ggAU)
 
 ## Available color palettes
 
-```{r fig.width = 10, fig.height = 5, dpi=300}
+```{r palettes, fig.width = 10, fig.height = 5, dpi=300}
 unikn::seecol(au_color_palette(style = "dark"), main = "Dark", 
               grid = F, rgb = F)
 unikn::seecol(au_color_palette(style = "light"), main = "Light", 

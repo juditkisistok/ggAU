@@ -34,25 +34,25 @@ unikn::seecol(au_color_palette(style = "dark"), main = "Dark",
               grid = F, rgb = F)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-palettes-1.png" width="100%" />
 
 ``` r
 unikn::seecol(au_color_palette(style = "light"), main = "Light", 
               grid = F, rgb = F)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
+<img src="man/figures/README-palettes-2.png" width="100%" />
 
 ``` r
 unikn::seecol(au_color_palette(style = "hotandcold"), main = "Hot and cold", 
               grid = F, rgb = F)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-3.png" width="100%" />
+<img src="man/figures/README-palettes-3.png" width="100%" />
 
 ``` r
 unikn::seecol(au_color_palette(style = "hotandcold_dark"), main = "Hot and cold (dark)", 
               grid = F, rgb = F)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-4.png" width="100%" />
+<img src="man/figures/README-palettes-4.png" width="100%" />
