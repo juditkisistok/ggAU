@@ -83,7 +83,7 @@ cowplot::plot_grid(light_plot_fill, dark_plot_fill)
 <img src="man/figures/README-scale_fill_au-examples-1.png" width="100%" />
 
 It is also possible to define your own mix of colors - you can retrieve
-a vector of hex codes by color name.
+a vector of AU hex codes by color name.
 
 ``` r
 my_custom_style = c("blue", "yellow", "red")
@@ -96,3 +96,26 @@ ggplot2::ggplot(iris_df, ggplot2::aes(x = Species,
 ```
 
 <img src="man/figures/README-scale_fill_au-custom-1.png" width="100%" />
+
+The continuous fill scale works in a similar way, both with the built-in
+and custom color schemes.
+
+``` r
+dummy_data = expand.grid(x = paste0("var_", seq(1, 10)),
+                          y = paste0("var_", seq(11, 20)))
+dummy_data$z = runif(100, -1, 1)
+
+cont_fill_1 = ggplot2::ggplot(dummy_data, ggplot2::aes(x, y, fill = z)) +
+  ggplot2::geom_tile() +
+  ggpubr::theme_pubr() +
+  scale_fill_au(style = "hotandcold")
+
+cont_fill_2 = ggplot2::ggplot(dummy_data, ggplot2::aes(x, y, fill= z)) +
+  ggplot2::geom_tile() +
+  ggpubr::theme_pubr() +
+  scale_fill_au(style = "custom", colors = c("yellow", "white", "darkblue"))
+
+cowplot::plot_grid(cont_fill_1, cont_fill_2)
+```
+
+<img src="man/figures/README-scale_fill_au-continuous-1.png" width="100%" />

@@ -68,7 +68,7 @@ dark_plot_fill = ggplot2::ggplot(iris_df, ggplot2::aes(x = Species,
 cowplot::plot_grid(light_plot_fill, dark_plot_fill)
 ```
 
-It is also possible to define your own mix of colors - you can retrieve a vector of hex codes by color name. 
+It is also possible to define your own mix of colors - you can retrieve a vector of AU hex codes by color name. 
 
 ```{r scale_fill_au-custom, dpi = 300}
 my_custom_style = c("blue", "yellow", "red")
@@ -78,5 +78,24 @@ ggplot2::ggplot(iris_df, ggplot2::aes(x = Species,
   ggplot2::geom_bar(stat = "identity") +
   ggpubr::theme_pubr() +
   scale_fill_au(discrete = T, style = "custom", colors = my_custom_style)
+```
+
+The continuous fill scale works in a similar way, both with the built-in and custom color schemes.
+```{r scale_fill_au-continuous, dpi = 300, fig.width=14, fig.height=8}
+dummy_data = expand.grid(x = paste0("var_", seq(1, 10)),
+                          y = paste0("var_", seq(11, 20)))
+dummy_data$z = runif(100, -1, 1)
+
+cont_fill_1 = ggplot2::ggplot(dummy_data, ggplot2::aes(x, y, fill = z)) +
+  ggplot2::geom_tile() +
+  ggpubr::theme_pubr() +
+  scale_fill_au(style = "hotandcold")
+
+cont_fill_2 = ggplot2::ggplot(dummy_data, ggplot2::aes(x, y, fill= z)) +
+  ggplot2::geom_tile() +
+  ggpubr::theme_pubr() +
+  scale_fill_au(style = "custom", colors = c("yellow", "white", "darkblue"))
+
+cowplot::plot_grid(cont_fill_1, cont_fill_2)
 ```
 
