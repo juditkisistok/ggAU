@@ -7,13 +7,21 @@
 au_colors(...)
 }
 \arguments{
-\item{...}{Name(s) of color(s) to be used.}
+\item{...}{Name(s) of color(s) to be used. Valid color names: \code{blue}, \code{darkblue},
+\code{purple}, \code{darkpurple}, \code{cyan}, \code{darkcyan}, \code{turkis}, \code{darkturkis}, \code{green},
+\code{darkgreen}, \code{yellow}, \code{darkyellow}, \code{orange}, \code{darkorange}, \code{red}, \code{darkred},
+\code{magenta}, \code{darkmagenta}, \code{grey}, \code{darkgrey}, \code{white}.}
 }
 \value{
-A named vector with the chosen colors.
+A named vector with the chosen colors and their corresponding hex codes.
 }
 \description{
-Aarhus University brand colors
+Helper function to retrieve an arbitrary number of AU brand colors by name.
+Returns a named vector containing the color name(s) as passed into the function,
+and the corresponding AU hex code(s).
+}
+\details{
+Implementation is based on the \href{https://medarbejdere.au.dk/en/administration/communication/guidelines/guidelinesforcolours}{official brand guidelines}.
 }
 \examples{
 au_colors("red", "blue")

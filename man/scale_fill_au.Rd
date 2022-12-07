@@ -4,7 +4,16 @@
 \alias{scale_fill_au}
 \title{Title}
 \usage{
-scale_fill_au(style = "dark", reverse = FALSE, ...)
+scale_fill_au(
+  aesthetics = "fill",
+  style = "light",
+  reverse = FALSE,
+  discrete = F,
+  colors = NA,
+  ...,
+  breaks = ggplot2::waiver(),
+  na.value = au_colors("grey")
+)
 }
 \description{
 Title

@@ -4,7 +4,7 @@
 \alias{au_color_palette}
 \title{Title}
 \usage{
-au_color_palette(style = "dark", reverse = FALSE, ...)
+au_color_palette(style = "light", reverse = FALSE, colors = NA, ...)
 }
 \description{
 Title

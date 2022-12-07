@@ -1,8 +1,17 @@
 #' Aarhus University brand colors
 #'
-#' @param ... Name(s) of color(s) to be used.
+#' Helper function to retrieve an arbitrary number of AU brand colors by name.
+#' Returns a named vector containing the color name(s) as passed into the function,
+#' and the corresponding AU hex code(s).
 #'
-#' @return A named vector with the chosen colors.
+#' Implementation is based on the [official brand guidelines](https://medarbejdere.au.dk/en/administration/communication/guidelines/guidelinesforcolours).
+#'
+#' @param ... Name(s) of color(s) to be used. Valid color names: `blue`, `darkblue`,
+#' `purple`, `darkpurple`, `cyan`, `darkcyan`, `turkis`, `darkturkis`, `green`,
+#' `darkgreen`, `yellow`, `darkyellow`, `orange`, `darkorange`, `red`, `darkred`,
+#' `magenta`, `darkmagenta`, `grey`, `darkgrey`, `white`.
+#'
+#' @return A named vector with the chosen colors and their corresponding hex codes.
 #' @export
 #'
 #' @examples

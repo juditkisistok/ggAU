@@ -4,7 +4,13 @@
 \alias{scale_color_au}
 \title{Title}
 \usage{
-scale_color_au(style = "dark", discrete = F, reverse = FALSE, ...)
+scale_color_au(
+  style = "lightblue",
+  discrete = F,
+  reverse = FALSE,
+  colors = NA,
+  ...
+)
 }
 \description{
 Title
