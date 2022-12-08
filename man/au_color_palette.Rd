@@ -18,7 +18,7 @@ au_color_palette(style = "light", reverse = FALSE, colors = NA)
 A named vector with a pre-defined or custom color palette.
 }
 \description{
-Color palette generator
+Helper function to generate branded color palettes.
 }
 \examples{
 au_color_palette("hotandcold")

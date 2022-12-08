@@ -1,5 +1,7 @@
 #' Color palette generator
 #'
+#' Helper function to generate branded color palettes.
+#'
 #' @param style String, name of a pre-defined color palette (`light`, `dark`,
 #' `hotandcold`, `hotandcold_dark`), or `custom`. The default palette is `light`.
 #' @param reverse Boolean, TRUE will reverse the color order.

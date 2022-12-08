@@ -2,19 +2,48 @@
 % Please edit documentation in R/scale_fill_au.R
 \name{scale_fill_au}
 \alias{scale_fill_au}
-\title{Title}
+\title{AU fill scale}
 \usage{
 scale_fill_au(
-  aesthetics = "fill",
   style = "light",
   reverse = FALSE,
-  discrete = F,
+  discrete = FALSE,
   colors = NA,
-  ...,
-  breaks = ggplot2::waiver(),
-  na.value = au_colors("grey")
+  na.value = au_colors("grey"),
+  ...
 )
 }
+\arguments{
+\item{style}{String, color palette style. Could be \code{light}, \code{dark},
+\code{hotandcold}, \code{hotandcold_dark}, or \code{custom}. Default palette is \code{light}.}
+
+\item{reverse}{Boolean, \code{TRUE} reverses the color order.}
+
+\item{discrete}{Boolean, \code{TRUE} applies a discrete color scale, \code{FALSE} applies a
+continuous color scale. Default is \code{FALSE}.}
+
+\item{colors}{Vector of AU color names. Only used when \code{style = "custom"} is passed in.}
+
+\item{na.value}{String or named vector, the color to use for NA values.
+Default is \code{au_colors("grey")}, corresponding to \verb{#878787}.}
+
+\item{...}{Arguments passed on to \code{scale_fill_manual} or \code{scale_fill_gradientn}.}
+}
+\value{
+A ggproto ScaleContinuous or ScaleDiscrete object.
+}
 \description{
-Title
+Enables the customization of the fill aesthetic using pre-defined or custom
+AU color palettes.
+}
+\examples{
+iris_df = dplyr::summarize(dplyr::group_by(iris, Species),
+`Mean petal width` = mean(Petal.Width))
+
+ggplot2::ggplot(iris_df, ggplot2::aes(x = Species,
+y = `Mean petal width`, fill = Species)) +
+ggplot2::geom_bar(stat = "identity") +
+ggpubr::theme_pubr() +
+scale_fill_au(discrete = T, style = "light")
+
 }
