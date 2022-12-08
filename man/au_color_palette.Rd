@@ -2,10 +2,26 @@
 % Please edit documentation in R/au_color_palette.R
 \name{au_color_palette}
 \alias{au_color_palette}
-\title{Title}
+\title{Color palette generator}
 \usage{
-au_color_palette(style = "light", reverse = FALSE, colors = NA, ...)
+au_color_palette(style = "light", reverse = FALSE, colors = NA)
+}
+\arguments{
+\item{style}{String, name of a pre-defined color palette (\code{light}, \code{dark},
+\code{hotandcold}, \code{hotandcold_dark}), or \code{custom}. The default palette is \code{light}.}
+
+\item{reverse}{Boolean, TRUE will reverse the color order.}
+
+\item{colors}{Vector of AU color names. Only used when \code{style = "custom"} is passed in.}
+}
+\value{
+A named vector with a pre-defined or custom color palette.
 }
 \description{
-Title
+Color palette generator
+}
+\examples{
+au_color_palette("hotandcold")
+
+au_color_palette("custom", colors = c("yellow", "magenta", "white"))
 }
