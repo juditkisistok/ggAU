@@ -4,17 +4,17 @@
 #' @export
 #'
 #' @examples
-scale_color_au = function(style = "lightblue", discrete = F, reverse = FALSE,
-                          colors = NA, ...) {
+scale_color_au = function(style = "light", reverse = FALSE, discrete = FALSE,
+                          colors = NA, na.value = au_colors("grey"), ...) {
   if (style == "custom") {
-    palette = au_color_palette(style = style, reverse = reverse, colors = colors, ...)
+    palette = au_color_palette(style = style, reverse = reverse, colors = colors)
   } else {
-    palette = au_color_palette(style = style, reverse = reverse, ...)
+    palette = au_color_palette(style = style, reverse = reverse)
   }
 
   if (discrete) {
-    discrete_scale("colour", paste0("au_", style), palette = palette, ...)
+    ggplot2::scale_color_manual(values = unname(palette), na.value = unname(na.value), ...)
   } else {
-    scale_color_gradientn(colours = palette(256), ...)
+    ggplot2::scale_color_gradientn(colours = palette, ...)
   }
 }
