@@ -119,3 +119,40 @@ cowplot::plot_grid(cont_fill_1, cont_fill_2)
 ```
 
 <img src="man/figures/README-scale_fill_au-continuous-1.png" width="100%" />
+
+The color aesthetic can be changed in a similar way, using
+`scale_color_au`.
+
+``` r
+discrete_cols = ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Width, y = Petal.Length, color = Species)) +
+  ggplot2::geom_point(size = 5, alpha = 0.3) +
+  ggpubr::theme_pubr() +
+  scale_color_au(discrete = T) +
+  ggplot2::ggtitle("Built-in discrete color scale") +
+  ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
+
+discrete_custom = ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Width, y = Petal.Length, color = Species)) +
+  ggplot2::geom_point(size = 5, alpha = 0.3) +
+  ggpubr::theme_pubr() +
+  scale_color_au(discrete = T, style = "custom", colors = c("yellow", "magenta", "darkblue")) +
+  ggplot2::ggtitle("Custom discrete color scale") +
+  ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
+
+cont_cols = ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Width, y = Petal.Length, color = Petal.Length)) +
+  ggplot2::geom_point(size = 5, alpha = 0.3) +
+  ggpubr::theme_pubr() +
+  scale_color_au(discrete = F, style = "hotandcold") +
+  ggplot2::ggtitle("Built-in continuous color scale") +
+  ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
+
+cont_custom = ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Width, y = Petal.Length, color = Petal.Length)) +
+  ggplot2::geom_point(size = 5, alpha = 0.3) +
+  ggpubr::theme_pubr() +
+  scale_color_au(discrete = F, style = "custom", colors = c("darkblue", "yellow", "magenta")) +
+  ggplot2::ggtitle("Custom continuous color scale") +
+  ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
+
+cowplot::plot_grid(discrete_cols, discrete_custom, cont_cols, cont_custom)
+```
+
+<img src="man/figures/README-scale_color_au-examples-1.png" width="100%" />
