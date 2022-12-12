@@ -2,16 +2,43 @@
 % Please edit documentation in R/scale_color_au.R
 \name{scale_color_au}
 \alias{scale_color_au}
-\title{Title}
+\title{AU color scale}
 \usage{
 scale_color_au(
-  style = "lightblue",
-  discrete = F,
+  style = "light",
   reverse = FALSE,
+  discrete = FALSE,
   colors = NA,
+  na.value = au_colors("grey"),
   ...
 )
 }
+\arguments{
+\item{style}{String, color palette style. Could be \code{light}, \code{dark},
+\code{hotandcold}, \code{hotandcold_dark}, or \code{custom}. Default palette is \code{light}.}
+
+\item{reverse}{Boolean, \code{TRUE} reverses the color order.}
+
+\item{discrete}{Boolean, \code{TRUE} applies a discrete color scale, \code{FALSE} applies a
+continuous color scale. Default is \code{FALSE}.}
+
+\item{colors}{Vector of AU color names. Only used when \code{style = "custom"} is passed in.}
+
+\item{na.value}{String or named vector, the color to use for NA values.
+Default is \code{au_colors("grey")}, corresponding to \verb{#878787}.}
+
+\item{...}{Arguments passed on to \code{scale_color_manual} or \code{scale_color_gradientn}.}
+}
+\value{
+A ggproto ScaleContinuous or ScaleDiscrete object.
+}
 \description{
-Title
+Enables the customization of the color aesthetic using pre-defined or custom
+AU color palettes.
+}
+\examples{
+ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Width, y = Petal.Length, color = Species)) +
+ggplot2::geom_point(size = 5, alpha = 0.3) +
+ggpubr::theme_pubr() +
+scale_color_au(discrete = T)
 }
