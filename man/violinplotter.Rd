@@ -4,7 +4,19 @@
 \alias{violinplotter}
 \title{Title}
 \usage{
-violinplotter()
+violinplotter(
+  data,
+  x_val,
+  y_val,
+  x_lab = "x",
+  y_lab = "y",
+  title = "",
+  filter = F,
+  filter_col = NA,
+  filter_val = NA,
+  comp_vec = NA,
+  col_vec = au_colors()
+)
 }
 \description{
 Title
