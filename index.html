@@ -170,6 +170,32 @@
 <span><span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html" class="external-link">plot_grid</a></span><span class="op">(</span><span class="va">discrete_cols</span>, <span class="va">discrete_custom</span>, <span class="va">cont_cols</span>, <span class="va">cont_custom</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-scale_color_au-examples-1.png" width="100%"></p>
 </div>
+<div class="section level1">
+<h1 id="built-in-plots">Built-in plots<a class="anchor" aria-label="anchor" href="#built-in-plots"></a>
+</h1>
+<p>Additionally to the color schemes, ggAU also includes commonly used visualization types with pre-applied AU styles.</p>
+<div class="section level2">
+<h2 id="violinplotter">Violinplotter<a class="anchor" aria-label="anchor" href="#violinplotter"></a>
+</h2>
+<p>The function has many customization options, however, specifying <code>data</code>, <code>x_val</code> and <code>y_val</code> is enough for getting a basic plot up and running.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">minimal</span> <span class="op">=</span> <span class="fu"><a href="reference/violinplotter.html">violinplotter</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, x_val <span class="op">=</span>  <span class="st">"Species"</span>, y_val <span class="op">=</span> <span class="st">"Petal.Width"</span>,</span>
+<span>                        title <span class="op">=</span> <span class="st">"Minimal example"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">full_custom</span> <span class="op">=</span> <span class="fu"><a href="reference/violinplotter.html">violinplotter</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, x_val <span class="op">=</span>  <span class="st">"Species"</span>, y_val <span class="op">=</span> <span class="st">"Petal.Width"</span>, </span>
+<span>                            x_lab <span class="op">=</span> <span class="st">"Species"</span>, y_lab <span class="op">=</span> <span class="st">"Petal width"</span>, </span>
+<span>                            title <span class="op">=</span> <span class="st">"Petal width comparison across species"</span>,</span>
+<span>                            filter <span class="op">=</span> <span class="cn">F</span>, filter_col <span class="op">=</span> <span class="cn">NA</span>, filter_val <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>                            comp_vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"setosa"</span>, <span class="st">"virginica"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"setosa"</span>, <span class="st">"versicolor"</span><span class="op">)</span>, </span>
+<span>                                            <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"virginica"</span>, <span class="st">"versicolor"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                            col_style <span class="op">=</span> <span class="st">"custom"</span>,  fill_style <span class="op">=</span> <span class="st">"custom"</span>, </span>
+<span>                            col_vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span><span class="op">)</span>, </span>
+<span>                            fill_vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html" class="external-link">plot_grid</a></span><span class="op">(</span><span class="va">minimal</span>, <span class="va">full_custom</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-violinplotter-example-1.png" width="100%"></p>
+</div>
+</div>
 
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
