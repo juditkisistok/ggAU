@@ -156,3 +156,19 @@ cowplot::plot_grid(discrete_cols, discrete_custom, cont_cols, cont_custom)
 ```
 
 <img src="man/figures/README-scale_color_au-examples-1.png" width="100%" />
+
+# Built-in plots
+
+Additionally to the color schemes, ggAU also includes commonly used
+visualization types with pre-applied AU styles.
+
+``` r
+violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width", 
+              x_lab = "Species", y_lab = "Petal width", title = "Petal width comparison across species",
+               filter = F, filter_col = NA, filter_val = NA,
+              comp_vec = list(c("setosa", "virginica"), c("setosa", "versicolor"), c("virginica", "versicolor")),
+              col_style = "custom",  fill_style = "custom", 
+              col_vec = c("red", "blue", "green"), fill_vec = c("red", "blue", "green"))
+```
+
+<img src="man/figures/README-violinplotter-example-1.png" width="100%" />
