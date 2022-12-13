@@ -29,12 +29,14 @@ violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "
     ggplot2::ylab(y_lab) +
     ggplot2::theme(legend.position = 'none',
           plot.title = ggplot2::element_text(hjust = 0.5)) +
-    ggpubr::stat_compare_means(comparisons = comp_vec) +
     scale_color_au(colors = col_vec, style = col_style, discrete = T) +
     scale_fill_au(colors = fill_vec, style = fill_style, discrete = T) +
     ggplot2::ggtitle(paste0(title, ', ', stat$lab))
 
-  return (p)
+  if (!is.na(comp_vec[1])) {
+    p = p + ggpubr::stat_compare_means(comparisons = comp_vec)
+  }
 
+  return (p)
 }
 

@@ -162,13 +162,26 @@ cowplot::plot_grid(discrete_cols, discrete_custom, cont_cols, cont_custom)
 Additionally to the color schemes, ggAU also includes commonly used
 visualization types with pre-applied AU styles.
 
+## Violinplotter
+
+The function has many customization options, however, specifying `data`,
+`x_val` and `y_val` is enough for getting a basic plot up and running.
+
 ``` r
-violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width", 
-              x_lab = "Species", y_lab = "Petal width", title = "Petal width comparison across species",
-               filter = F, filter_col = NA, filter_val = NA,
-              comp_vec = list(c("setosa", "virginica"), c("setosa", "versicolor"), c("virginica", "versicolor")),
-              col_style = "custom",  fill_style = "custom", 
-              col_vec = c("red", "blue", "green"), fill_vec = c("red", "blue", "green"))
+minimal = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
+                        title = "Minimal example")
+
+full_custom = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width", 
+                            x_lab = "Species", y_lab = "Petal width", 
+                            title = "Petal width comparison across species",
+                            filter = F, filter_col = NA, filter_val = NA,
+                            comp_vec = list(c("setosa", "virginica"), c("setosa", "versicolor"), 
+                                            c("virginica", "versicolor")),
+                            col_style = "custom",  fill_style = "custom", 
+                            col_vec = c("red", "blue", "green"), 
+                            fill_vec = c("red", "blue", "green"))
+
+cowplot::plot_grid(minimal, full_custom)
 ```
 
 <img src="man/figures/README-violinplotter-example-1.png" width="100%" />
