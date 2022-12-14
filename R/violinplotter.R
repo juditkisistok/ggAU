@@ -1,16 +1,38 @@
 #' Title
 #'
-#' @return
+#' @param data The `data.frame` to be used for the visualization.
+#' @param x_val string, the name of the column to plot on the x axis.
+#' @param y_val string, the name of the column to plot on the y axis.
+#' @param x_lab string, the title of the x axis.
+#' @param y_lab string, the title of the y axis.
+#' @param title string, the title of the plot to be displayed on top.
+#' @param filter boolean, if `TRUE`, it allows filtering of `data`. Default is `FALSE`.
+#' @param filter_col string, the name of the column to filter if `filter = TRUE`.
+#' @param filter_val vector, the values to keep if `filter = TRUE`.
+#' @param comp_vec list of vectors containing the comparisons to be passed into `stat_compare_means`.
+#' Default is `NA`, and in this case, no comparisons are made.
+#' @param col_vec vector containing the colors to be used for the `color` aesthetic. Default is `au_colors()`.
+#' @param fill_vec vector containing the colors to be used for the `fill` aesthetic. Default is `au_colors()`.
+#' @param col_style string, palette style to be used for `scale_color_au`. Default is `light`.
+#' @param fill_style string, palette style to be used for `scale_fill_au`. Default is `light`.
+#' @param display_n boolean, if `TRUE`, the plot displays the sample size appended to the title. Default is `TRUE`.
+#'
+#' @return A ggplot object.
 #' @export
 #'
 #' @examples
+#' violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width")
+#'
+#' violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
+#' filter = T, filter_col = "Species", filter_val = c("setosa", "virginica"),
+#' comp_vec = list(c("setosa", "virginica")))
 violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "",
                          filter = F, filter_col = NA, filter_val = NA,
                          comp_vec = NA, col_vec = au_colors(),
                          fill_vec = au_colors(), col_style = "light",
                          fill_style = "light", display_n = T) {
   if (filter == T) {
-    data = dplyr::filter(data, get(filter_col) == filter_val)
+    data = dplyr::filter(data, get(filter_col) %in% filter_val)
   }
 
   p = ggplot2::ggplot(data, ggplot2::aes_string(x = x_val, y = y_val)) +

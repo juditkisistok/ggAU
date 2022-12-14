@@ -171,18 +171,23 @@ The function has many customization options, however, specifying `data`,
 minimal = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
                         title = "Minimal example")
 
+minimal_filtered = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
+                                 filter = T, filter_col = "Species", filter_val = c("setosa", "virginica"),
+                                 title = "Minimal filtered example")
+
 full_custom = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width", 
                             x_lab = "Species", y_lab = "Petal width", 
-                            title = "Petal width comparison across species",
+                            title = "Fully customized example",
                             filter = F, filter_col = NA, filter_val = NA,
-                            comp_vec = list(c("setosa", "virginica"), c("setosa", "versicolor"), 
+                            comp_vec = list(c("setosa", "virginica"), 
+                                            c("setosa", "versicolor"), 
                                             c("virginica", "versicolor")),
                             col_style = "custom",  fill_style = "custom", 
                             col_vec = c("red", "blue", "green"), 
                             fill_vec = c("red", "blue", "green"),
                             display_n = F)
 
-cowplot::plot_grid(minimal, full_custom)
+cowplot::plot_grid(minimal, minimal_filtered, full_custom, nrow = 1)
 ```
 
 <img src="man/figures/README-violinplotter-example-1.png" width="100%" />

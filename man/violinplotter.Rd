@@ -15,9 +15,55 @@ violinplotter(
   filter_col = NA,
   filter_val = NA,
   comp_vec = NA,
-  col_vec = au_colors()
+  col_vec = au_colors(),
+  fill_vec = au_colors(),
+  col_style = "light",
+  fill_style = "light",
+  display_n = T
 )
+}
+\arguments{
+\item{data}{The \code{data.frame} to be used for the visualization.}
+
+\item{x_val}{string, the name of the column to plot on the x axis.}
+
+\item{y_val}{string, the name of the column to plot on the y axis.}
+
+\item{x_lab}{string, the title of the x axis.}
+
+\item{y_lab}{string, the title of the y axis.}
+
+\item{title}{string, the title of the plot to be displayed on top.}
+
+\item{filter}{boolean, if \code{TRUE}, it allows filtering of \code{data}. Default is \code{FALSE}.}
+
+\item{filter_col}{string, the name of the column to filter if \code{filter = TRUE}.}
+
+\item{filter_val}{vector, the values to keep if \code{filter = TRUE}.}
+
+\item{comp_vec}{list of vectors containing the comparisons to be passed into \code{stat_compare_means}.
+Default is \code{NA}, and in this case, no comparisons are made.}
+
+\item{col_vec}{vector containing the colors to be used for the \code{color} aesthetic. Default is \code{au_colors()}.}
+
+\item{fill_vec}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{au_colors()}.}
+
+\item{col_style}{string, palette style to be used for \code{scale_color_au}. Default is \code{light}.}
+
+\item{fill_style}{string, palette style to be used for \code{scale_fill_au}. Default is \code{light}.}
+
+\item{display_n}{boolean, if \code{TRUE}, the plot displays the sample size appended to the title. Default is \code{TRUE}.}
+}
+\value{
+A ggplot object.
 }
 \description{
 Title
+}
+\examples{
+violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width")
+
+violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
+filter = T, filter_col = "Species", filter_val = c("setosa", "virginica"),
+comp_vec = list(c("setosa", "virginica")))
 }
