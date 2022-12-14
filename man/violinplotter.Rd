@@ -2,7 +2,7 @@
 % Please edit documentation in R/violinplotter.R
 \name{violinplotter}
 \alias{violinplotter}
-\title{Title}
+\title{Create violin-boxplots}
 \usage{
 violinplotter(
   data,
@@ -58,12 +58,13 @@ Default is \code{NA}, and in this case, no comparisons are made.}
 A ggplot object.
 }
 \description{
-Title
+Enables the creation of violin-boxplots in a convenient and customizable manner.
 }
 \examples{
-violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width")
+violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
+display_n = F)
 
 violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
 filter = T, filter_col = "Species", filter_val = c("setosa", "virginica"),
-comp_vec = list(c("setosa", "virginica")))
+comp_vec = list(c("setosa", "virginica")), title = "Comparing Setosa and Virginica")
 }

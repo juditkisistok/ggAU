@@ -1,4 +1,6 @@
-#' Title
+#' Create violin-boxplots
+#'
+#' Enables the creation of violin-boxplots in a convenient and customizable manner.
 #'
 #' @param data The `data.frame` to be used for the visualization.
 #' @param x_val string, the name of the column to plot on the x axis.
@@ -21,11 +23,12 @@
 #' @export
 #'
 #' @examples
-#' violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width")
+#' violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
+#' display_n = F)
 #'
 #' violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
 #' filter = T, filter_col = "Species", filter_val = c("setosa", "virginica"),
-#' comp_vec = list(c("setosa", "virginica")))
+#' comp_vec = list(c("setosa", "virginica")), title = "Comparing Setosa and Virginica")
 violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "",
                          filter = F, filter_col = NA, filter_val = NA,
                          comp_vec = NA, col_vec = au_colors(),
