@@ -5,8 +5,8 @@
 #' @param data The `data.frame` to be used for the visualization.
 #' @param x_val string, the name of the column to plot on the x axis.
 #' @param y_val string, the name of the column to plot on the y axis.
-#' @param x_lab string, the title of the x axis.
-#' @param y_lab string, the title of the y axis.
+#' @param x_lab string, the x axis label.
+#' @param y_lab string, the y axis label.
 #' @param title string, the title of the plot to be displayed on top.
 #' @param filter boolean, if `TRUE`, it allows filtering of `data`. Default is `FALSE`.
 #' @param filter_col string, the name of the column to filter if `filter = TRUE`.
@@ -38,9 +38,9 @@ violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "
     data = dplyr::filter(data, get(filter_col) %in% filter_val)
   }
 
-  p = ggplot2::ggplot(data, ggplot2::aes_string(x = x_val, y = y_val)) +
-    ggforce::geom_sina(ggplot2::aes_string(color = x_val))+
-    ggplot2::geom_violin(ggplot2::aes_string(fill = x_val), alpha = 0.5) +
+  p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val))) +
+    ggforce::geom_sina(ggplot2::aes(color = get(x_val)))+
+    ggplot2::geom_violin(ggplot2::aes(fill = get(x_val)), alpha = 0.5) +
     ggplot2::geom_boxplot(width = 0.1, outlier.shape = NA) +
     ggpubr::theme_pubr() +
     ggplot2::xlab(x_lab) +
