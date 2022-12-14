@@ -53,12 +53,97 @@
 <span>  filter_col <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  filter_val <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  comp_vec <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  col_vec <span class="op">=</span> <span class="fu"><a href="au_colors.html">au_colors</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  col_vec <span class="op">=</span> <span class="fu"><a href="au_colors.html">au_colors</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  fill_vec <span class="op">=</span> <span class="fu"><a href="au_colors.html">au_colors</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  col_style <span class="op">=</span> <span class="st">"light"</span>,</span>
+<span>  fill_style <span class="op">=</span> <span class="st">"light"</span>,</span>
+<span>  display_n <span class="op">=</span> <span class="cn">T</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+    <dl><dt>data</dt>
+<dd><p>The <code>data.frame</code> to be used for the visualization.</p></dd>
 
-  </main></div>
+
+<dt>x_val</dt>
+<dd><p>string, the name of the column to plot on the x axis.</p></dd>
+
+
+<dt>y_val</dt>
+<dd><p>string, the name of the column to plot on the y axis.</p></dd>
+
+
+<dt>x_lab</dt>
+<dd><p>string, the title of the x axis.</p></dd>
+
+
+<dt>y_lab</dt>
+<dd><p>string, the title of the y axis.</p></dd>
+
+
+<dt>title</dt>
+<dd><p>string, the title of the plot to be displayed on top.</p></dd>
+
+
+<dt>filter</dt>
+<dd><p>boolean, if <code>TRUE</code>, it allows filtering of <code>data</code>. Default is <code>FALSE</code>.</p></dd>
+
+
+<dt>filter_col</dt>
+<dd><p>string, the name of the column to filter if <code>filter = TRUE</code>.</p></dd>
+
+
+<dt>filter_val</dt>
+<dd><p>vector, the values to keep if <code>filter = TRUE</code>.</p></dd>
+
+
+<dt>comp_vec</dt>
+<dd><p>list of vectors containing the comparisons to be passed into <code>stat_compare_means</code>.
+Default is <code>NA</code>, and in this case, no comparisons are made.</p></dd>
+
+
+<dt>col_vec</dt>
+<dd><p>vector containing the colors to be used for the <code>color</code> aesthetic. Default is <code><a href="au_colors.html">au_colors()</a></code>.</p></dd>
+
+
+<dt>fill_vec</dt>
+<dd><p>vector containing the colors to be used for the <code>fill</code> aesthetic. Default is <code><a href="au_colors.html">au_colors()</a></code>.</p></dd>
+
+
+<dt>col_style</dt>
+<dd><p>string, palette style to be used for <code>scale_color_au</code>. Default is <code>light</code>.</p></dd>
+
+
+<dt>fill_style</dt>
+<dd><p>string, palette style to be used for <code>scale_fill_au</code>. Default is <code>light</code>.</p></dd>
+
+
+<dt>display_n</dt>
+<dd><p>boolean, if <code>TRUE</code>, the plot displays the sample size appended to the title. Default is <code>TRUE</code>.</p></dd>
+
+</dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>A ggplot object.</p>
+    </div>
+
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">violinplotter</span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, x_val <span class="op">=</span>  <span class="st">"Species"</span>, y_val <span class="op">=</span> <span class="st">"Petal.Width"</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="violinplotter-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">violinplotter</span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, x_val <span class="op">=</span>  <span class="st">"Species"</span>, y_val <span class="op">=</span> <span class="st">"Petal.Width"</span>,</span></span>
+<span class="r-in"><span>filter <span class="op">=</span> <span class="cn">T</span>, filter_col <span class="op">=</span> <span class="st">"Species"</span>, filter_val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"setosa"</span>, <span class="st">"virginica"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>comp_vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"setosa"</span>, <span class="st">"virginica"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="violinplotter-2.png" alt="" width="700" height="433"></span>
+</code></pre></div>
+    </div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
