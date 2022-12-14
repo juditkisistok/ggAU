@@ -153,7 +153,8 @@ full_custom = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Widt
                                             c("virginica", "versicolor")),
                             col_style = "custom",  fill_style = "custom", 
                             col_vec = c("red", "blue", "green"), 
-                            fill_vec = c("red", "blue", "green"))
+                            fill_vec = c("red", "blue", "green"),
+                            display_n = F)
 
 cowplot::plot_grid(minimal, full_custom)
 ```
