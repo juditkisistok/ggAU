@@ -14,7 +14,9 @@
 #' @param comp_vec list of vectors containing the comparisons to be passed into `stat_compare_means`.
 #' Default is `NA`, and in this case, no comparisons are made.
 #' @param col_vec vector containing the colors to be used for the `color` aesthetic. Default is `au_colors()`.
+#' Custom colors are only applied when `col_style = "custom"`.
 #' @param fill_vec vector containing the colors to be used for the `fill` aesthetic. Default is `au_colors()`.
+#' #' Custom colors are only applied when `fill_style = "custom"`.
 #' @param col_style string, palette style to be used for `scale_color_au`. Default is `light`.
 #' @param fill_style string, palette style to be used for `scale_fill_au`. Default is `light`.
 #' @param display_n boolean, if `TRUE`, the plot displays the sample size appended to the title. Default is `TRUE`.
