@@ -53,7 +53,7 @@ violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "
   if (display_n) {
     # counts the number of data points for annotation purposes
     stat = data %>%
-      dplyr::select(x_val, y_val) %>%
+      dplyr::select(all_of(x_val), all_of(y_val)) %>%
       na.omit() %>%
       dplyr::count() %>%
       dplyr::mutate(lab = paste0('n = ', n))
