@@ -6,7 +6,8 @@
 #' @examples
 barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
                       pct = T, style = "light", colors = NA, y_lab = "y",
-                      x_lab = "x", title = "", labcol = "black") {
+                      x_lab = "x", title = "", labcol = "black",
+                      legend_lab = NA, labels = NA) {
   data = data %>%
     dplyr::select(!!x_val, !!y_val) %>%
     dplyr::group_by(get(x_val), get(y_val)) %>%
@@ -38,13 +39,25 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
   }
 
   p = p +
-    scale_fill_au(discrete = T, style = style, colors = colors) +
     ggplot2::ylab(y_lab) +
     ggplot2::xlab(x_lab) +
     ggplot2::ggtitle(label = title, subtitle = stat_title) +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5),
           plot.subtitle = ggplot2::element_text(hjust = 0.5)) +
     ggplot2::scale_x_discrete(labels = scale_labs)
+
+  if (!is.na(legend_lab)) {
+    p = p +
+      ggplot2::labs(fill = legend_lab)
+  }
+
+  if (!is.na(labels[1])) {
+    p = p +
+      scale_fill_au(discrete = T, style = style, colors = colors, labels = labels)
+  } else {
+    p = p +
+      scale_fill_au(discrete = T, style = style, colors = colors)
+  }
 
   return (p)
 }

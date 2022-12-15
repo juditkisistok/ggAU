@@ -182,7 +182,9 @@ full_custom_barplot = barplotter(data = iris, x_val = "Species", y_val = "Petal_
                                  pct = FALSE, style = "custom", colors = c("darkblue", "magenta"),
                                  y_lab = "Number of individuals", x_lab = "",
                                  title = "Comparing the petal lengths of different species",
-                                 labcol = "white")
+                                 labcol = "white", legend_lab = "Petal length category",
+                                 labels = c("Above mean", "Below mean")
+                                 )
 
 cowplot::plot_grid(minimal_barplot, full_custom_barplot)
 ```
