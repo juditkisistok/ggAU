@@ -5,3 +5,16 @@ template:
   theme: github-dark
   bslib:
     pkgdown-nav-height: 100px
+
+reference:
+- title: Built-in plots
+  contents:
+  - barplotter
+  - violinplotter
+
+- title: ggplot2 helpers
+  contents:
+  - au_colors
+  - au_color_palette
+  - scale_color_au
+  - scale_fill_au
