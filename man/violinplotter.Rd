@@ -29,9 +29,9 @@ violinplotter(
 
 \item{y_val}{string, the name of the column to plot on the y axis.}
 
-\item{x_lab}{string, the title of the x axis.}
+\item{x_lab}{string, the x axis label.}
 
-\item{y_lab}{string, the title of the y axis.}
+\item{y_lab}{string, the y axis label.}
 
 \item{title}{string, the title of the plot to be displayed on top.}
 
@@ -44,9 +44,11 @@ violinplotter(
 \item{comp_vec}{list of vectors containing the comparisons to be passed into \code{stat_compare_means}.
 Default is \code{NA}, and in this case, no comparisons are made.}
 
-\item{col_vec}{vector containing the colors to be used for the \code{color} aesthetic. Default is \code{au_colors()}.}
+\item{col_vec}{vector containing the colors to be used for the \code{color} aesthetic. Default is \code{au_colors()}.
+Custom colors are only applied when \code{col_style = "custom"}.}
 
-\item{fill_vec}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{au_colors()}.}
+\item{fill_vec}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{au_colors()}.
+#' Custom colors are only applied when \code{fill_style = "custom"}.}
 
 \item{col_style}{string, palette style to be used for \code{scale_color_au}. Default is \code{light}.}
 

@@ -2,10 +2,66 @@
 % Please edit documentation in R/barplotter.R
 \name{barplotter}
 \alias{barplotter}
-\title{Title}
+\title{Create barplots}
 \usage{
-barplotter()
+barplotter(
+  data,
+  x_val,
+  y_val,
+  order = NA,
+  scale_labs = NA,
+  pct = T,
+  style = "light",
+  colors = au_colors(),
+  y_lab = "y",
+  x_lab = "x",
+  title = "",
+  labcol = "black",
+  legend_lab = NA,
+  labels = NA
+)
+}
+\arguments{
+\item{data}{The \code{data.frame} to be used for the visualization.}
+
+\item{x_val}{string, the name of the column to plot on the x axis.}
+
+\item{y_val}{string, the name of the column to plot on the y axis.}
+
+\item{order}{vector, the order in which the bars should appear. It should include all unique values in \code{x_val} in the desired order.}
+
+\item{scale_labs}{vector, names to display on the x axis ticks. By default, it shows the names as they appear in \code{x_val}.}
+
+\item{pct}{boolean, if \code{TRUE}, percentages are displayed on the bars, if \code{FALSE}, the absolute numbers are shown.}
+
+\item{style}{string, palette style to be used for \code{scale_fill_au}. Default is \code{light}.}
+
+\item{colors}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{au_colors()}.
+Custom colors are only applied when \code{fill_style = "custom"}.}
+
+\item{y_lab}{string, the y axis label.}
+
+\item{x_lab}{string, the x axis label.}
+
+\item{title}{string, the title of the plot to be displayed on top.}
+
+\item{labcol}{string, the color of the annotation numbers displayed inside the bars. The default is black.}
+
+\item{legend_lab}{string, the legend title. Default is \code{y}.}
+
+\item{labels}{vector, the legend annotations. Default is the unique values in \code{y_val}.}
+}
+\value{
+A ggplot object.
 }
 \description{
-Title
+Enables the creation of barplots in a convenient and customizable manner,
+and calculates the associated Fisher's test p-value on the count data.
+}
+\examples{
+iris = dplyr::mutate(iris, Petal_mean = ifelse(Petal.Length > mean(Petal.Length),
+"above_mean", "below_mean"))
+
+barplotter(data = iris, x_val = "Species", y_val = "Petal_mean", labcol = "white")
+
 }

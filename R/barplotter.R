@@ -1,11 +1,35 @@
-#' Title
+#' Create barplots
 #'
-#' @return
+#' Enables the creation of barplots in a convenient and customizable manner,
+#' and calculates the associated Fisher's test p-value on the count data.
+#'
+#' @param data The `data.frame` to be used for the visualization.
+#' @param x_val string, the name of the column to plot on the x axis.
+#' @param y_val string, the name of the column to plot on the y axis.
+#' @param order vector, the order in which the bars should appear. It should include all unique values in `x_val` in the desired order.
+#' @param scale_labs vector, names to display on the x axis ticks. By default, it shows the names as they appear in `x_val`.
+#' @param pct boolean, if `TRUE`, percentages are displayed on the bars, if `FALSE`, the absolute numbers are shown.
+#' @param style string, palette style to be used for `scale_fill_au`. Default is `light`.
+#' @param colors vector containing the colors to be used for the `fill` aesthetic. Default is `au_colors()`.
+#' Custom colors are only applied when `fill_style = "custom"`.
+#' @param y_lab string, the y axis label.
+#' @param x_lab string, the x axis label.
+#' @param title string, the title of the plot to be displayed on top.
+#' @param labcol string, the color of the annotation numbers displayed inside the bars. The default is black.
+#' @param legend_lab string, the legend title. Default is `y`.
+#' @param labels vector, the legend annotations. Default is the unique values in `y_val`.
+#'
+#' @return A ggplot object.
 #' @export
 #'
 #' @examples
+#' iris = dplyr::mutate(iris, Petal_mean = ifelse(Petal.Length > mean(Petal.Length),
+#'"above_mean", "below_mean"))
+#'
+#' barplotter(data = iris, x_val = "Species", y_val = "Petal_mean", labcol = "white")
+#'
 barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
-                      pct = T, style = "light", colors = NA, y_lab = "y",
+                      pct = T, style = "light", colors = au_colors(), y_lab = "y",
                       x_lab = "x", title = "", labcol = "black",
                       legend_lab = NA, labels = NA) {
   data = data %>%
