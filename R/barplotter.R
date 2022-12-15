@@ -6,7 +6,7 @@
 #' @examples
 barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
                       pct = T, style = "light", colors = NA, y_lab = "y",
-                      x_lab = "x", title = "") {
+                      x_lab = "x", title = "", labcol = "black") {
   data = data %>%
     dplyr::select(!!x_val, !!y_val) %>%
     dplyr::group_by(get(x_val), get(y_val)) %>%
@@ -19,11 +19,11 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
     tidyr::pivot_wider(values_from = number, names_from = y, id_cols = x, values_fill = 0) %>%
     tibble::column_to_rownames('x')
 
-  if (is.na(order)) {
+  if (is.na(order[1])) {
     order = c(unique(data$x))
   }
 
-  if (is.na(scale_labs)) {
+  if (is.na(scale_labs[1])) {
     scale_labs = c(unique(data$x))
   }
 
@@ -31,10 +31,10 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
 
   if (pct) {
     p = ggpubr::ggbarplot(data, "x", "percent", lab.pos = "in", fill = "y",
-                          label = TRUE, order = order)
+                          label = TRUE, order = order, lab.col = labcol)
   } else {
     p = ggpubr::ggbarplot(data, "x", "number", lab.pos = "in", fill = "y",
-                          label = TRUE, order = order)
+                          label = TRUE, order = order, lab.col = labcol)
   }
 
   p = p +
@@ -47,5 +47,4 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
     ggplot2::scale_x_discrete(labels = scale_labs)
 
   return (p)
-
 }

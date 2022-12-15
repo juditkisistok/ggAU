@@ -191,3 +191,31 @@ cowplot::plot_grid(minimal, minimal_filtered, full_custom, nrow = 1)
 ```
 
 <img src="man/figures/README-violinplotter-example-1.png" width="100%" />
+
+## Barplotter
+
+This function creates a bar plot and displays the Fisher’s test p-value
+as a subtitle. Similarly to `violinplotter`, many customization options
+are available, but specifying `data`, `x_lab` and `y_lab` is sufficient
+for creating a basic plot.
+
+``` r
+# modifying the iris data to include two categorical variables
+iris = iris %>%
+  dplyr::mutate(Petal_mean = ifelse(Petal.Length > mean(Petal.Length), "above_mean", "below_mean"))
+
+minimal_barplot = barplotter(data = iris, x_val = "Species", y_val = "Petal_mean",
+                             labcol = "white")
+
+full_custom_barplot = barplotter(data = iris, x_val = "Species", y_val = "Petal_mean",
+                                 order = c("virginica", "setosa", "versicolor"),
+                                 scale_labs = c("Virginica", "Setosa", "Versicolor"),
+                                 pct = FALSE, style = "custom", colors = c("darkblue", "magenta"),
+                                 y_lab = "Number of individuals", x_lab = "",
+                                 title = "Comparing the petal lengths of different species",
+                                 labcol = "white")
+
+cowplot::plot_grid(minimal_barplot, full_custom_barplot)
+```
+
+<img src="man/figures/README-barplotter-examples-1.png" width="100%" />
