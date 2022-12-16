@@ -4,6 +4,8 @@
 # ggAU - ggplot2 themes for Aarhus University
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/juditkisistok/ggAU/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/juditkisistok/ggAU/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of ggAU is to simplify the process of creating
