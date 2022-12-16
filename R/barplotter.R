@@ -77,10 +77,10 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
 
   if (!is.na(labels[1])) {
     p = p +
-      scale_fill_au(discrete = T, style = style, colors = colors, labels = labels)
+      scale_fill_au(discrete = TRUE, style = style, colors = colors, labels = labels)
   } else {
     p = p +
-      scale_fill_au(discrete = T, style = style, colors = colors)
+      scale_fill_au(discrete = TRUE, style = style, colors = colors)
   }
 
   return (p)

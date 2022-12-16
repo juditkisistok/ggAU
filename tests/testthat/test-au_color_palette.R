@@ -14,6 +14,6 @@ test_that("function returns the correct colors", {
 })
 
 test_that("reversing the palette works", {
-  expect_equal(unname(au_color_palette(style = "test", reverse = T)),
+  expect_equal(unname(au_color_palette(style = "test", reverse = TRUE)),
                c("#e2001a", "#fabb00", "#003d73"))
 })

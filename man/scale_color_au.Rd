@@ -40,5 +40,5 @@ AU color palettes.
 ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Width, y = Petal.Length, color = Species)) +
 ggplot2::geom_point(size = 5, alpha = 0.3) +
 ggpubr::theme_pubr() +
-scale_color_au(discrete = T)
+scale_color_au(discrete = TRUE)
 }

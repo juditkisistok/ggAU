@@ -24,7 +24,7 @@
 #' y = `Mean petal width`, fill = Species)) +
 #' ggplot2::geom_bar(stat = "identity") +
 #' ggpubr::theme_pubr() +
-#' scale_fill_au(discrete = T, style = "light")
+#' scale_fill_au(discrete = TRUE, style = "light")
 #'
 scale_fill_au <- function(style = "light", reverse = FALSE, discrete = FALSE,
                           colors = NA, na.value = au_colors("grey"), ...) {

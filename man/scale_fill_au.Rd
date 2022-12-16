@@ -44,6 +44,6 @@ ggplot2::ggplot(iris_df, ggplot2::aes(x = Species,
 y = `Mean petal width`, fill = Species)) +
 ggplot2::geom_bar(stat = "identity") +
 ggpubr::theme_pubr() +
-scale_fill_au(discrete = T, style = "light")
+scale_fill_au(discrete = TRUE, style = "light")
 
 }

@@ -26,10 +26,10 @@
 #'
 #' @examples
 #' violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
-#' display_n = F)
+#' display_n = FALSE)
 #'
-#' violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
-#' filter = T, filter_col = "Species", filter_val = c("setosa", "virginica"),
+#' violinplotter(data = iris, x_val = "Species", y_val = "Petal.Width",
+#' filter = TRUE, filter_col = "Species", filter_val = c("setosa", "virginica"),
 #' comp_vec = list(c("setosa", "virginica")), title = "Comparing Setosa and Virginica")
 violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "",
                          filter = F, filter_col = NA, filter_val = NA,
@@ -49,8 +49,8 @@ violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "
     ggplot2::ylab(y_lab) +
     ggplot2::theme(legend.position = 'none',
           plot.title = ggplot2::element_text(hjust = 0.5)) +
-    scale_color_au(colors = col_vec, style = col_style, discrete = T) +
-    scale_fill_au(colors = fill_vec, style = fill_style, discrete = T)
+    scale_color_au(colors = col_vec, style = col_style, discrete = TRUE) +
+    scale_fill_au(colors = fill_vec, style = fill_style, discrete = TRUE)
 
   if (display_n) {
     # counts the number of data points for annotation purposes

@@ -20,7 +20,7 @@
 #' ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Width, y = Petal.Length, color = Species)) +
 #' ggplot2::geom_point(size = 5, alpha = 0.3) +
 #' ggpubr::theme_pubr() +
-#' scale_color_au(discrete = T)
+#' scale_color_au(discrete = TRUE)
 scale_color_au = function(style = "light", reverse = FALSE, discrete = FALSE,
                           colors = NA, na.value = au_colors("grey"), ...) {
   if (style == "custom") {

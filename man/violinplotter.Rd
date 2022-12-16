@@ -64,9 +64,9 @@ Enables the creation of violin-boxplots in a convenient and customizable manner.
 }
 \examples{
 violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
-display_n = F)
+display_n = FALSE)
 
-violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
-filter = T, filter_col = "Species", filter_val = c("setosa", "virginica"),
+violinplotter(data = iris, x_val = "Species", y_val = "Petal.Width",
+filter = TRUE, filter_col = "Species", filter_val = c("setosa", "virginica"),
 comp_vec = list(c("setosa", "virginica")), title = "Comparing Setosa and Virginica")
 }

@@ -1,7 +1,7 @@
 test_that("discrete built-in scale works", {
   p = ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Length, y = Petal.Width, color = Species)) +
     ggplot2::geom_point() +
-    scale_color_au(discrete = T)
+    scale_color_au(discrete = TRUE)
 
   g = ggplot2::ggplot_build(p)
 
@@ -11,7 +11,7 @@ test_that("discrete built-in scale works", {
 test_that("custom discrete scale works", {
   p = ggplot2::ggplot(iris, ggplot2::aes(x = Petal.Length, y = Petal.Width, color = Species)) +
     ggplot2::geom_point() +
-    scale_color_au(discrete = T, style = "custom", colors = c("blue", "red", "yellow"))
+    scale_color_au(discrete = TRUE, style = "custom", colors = c("blue", "red", "yellow"))
 
   g = ggplot2::ggplot_build(p)
 
