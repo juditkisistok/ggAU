@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/juditkisistok/ggAU/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/juditkisistok/ggAU/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/juditkisistok/ggAU/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/juditkisistok/ggAU/actions/workflows/check-standard.yaml)
 <!-- badges: end -->
 
 The goal of ggAU is to simplify the process of creating

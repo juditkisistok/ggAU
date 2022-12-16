@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # ggAU - ggplot2 themes for Aarhus University
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/juditkisistok/ggAU/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/juditkisistok/ggAU/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/juditkisistok/ggAU/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/juditkisistok/ggAU/actions/workflows/check-standard.yaml)
 <!-- badges: end -->
 
 The goal of ggAU is to simplify the process of creating publication-ready visualizations that follow the [Aarhus University color scheme](https://medarbejdere.au.dk/en/administration/communication/guidelines/guidelinesforcolours). 
