@@ -16,5 +16,7 @@ Imports:
     magrittr,
     MASS,
     dplyr,
-    ggplot2
+    ggplot2,
+    tidyr,
+    ggforce
     

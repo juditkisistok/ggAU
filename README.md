@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/juditkisistok/ggAU/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/juditkisistok/ggAU/actions/workflows/check-standard.yaml)
+[![codecov](https://codecov.io/gh/juditkisistok/ggAU/branch/master/graph/badge.svg?token=QOHSNRTDEN)](https://codecov.io/gh/juditkisistok/ggAU)
 <!-- badges: end -->
 
 The goal of ggAU is to simplify the process of creating
