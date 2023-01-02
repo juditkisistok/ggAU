@@ -21,5 +21,6 @@ Imports:
     tibble,
     purrr,
     ggforce,
-    ggpubr
+    ggpubr,
+    stats
     
