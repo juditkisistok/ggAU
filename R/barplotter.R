@@ -52,7 +52,7 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
     scale_labs = c(unique(data$x))
   }
 
-  stat_title = paste0("Fisher's exact test p = ", signif(fisher.test(fishers_df)$p, digits = 3))
+  stat_title = paste0("Fisher's exact test p = ", signif(stats::fisher.test(fishers_df)$p, digits = 3))
 
   if (pct) {
     p = ggpubr::ggbarplot(data, "x", "percent", lab.pos = "in", fill = "y",
