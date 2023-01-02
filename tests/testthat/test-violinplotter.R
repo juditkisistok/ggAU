@@ -64,3 +64,13 @@ test_that("title and labels are correct", {
 
   expect_equal(test_labs, plot_labs)
 })
+
+test_that("comparisons work", {
+  p = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
+                    comp_vec = list(c("setosa", "virginica"))
+                    )
+
+  constructor_str = paste(as.character(p[["layers"]][[4]][["constructor"]][[1]]))
+
+  expect_true("ggsignif" %in% constructor_str)
+})

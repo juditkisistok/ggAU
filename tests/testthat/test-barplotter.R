@@ -34,3 +34,39 @@ test_that("title and labels are correct", {
 
   expect_equal(test_labs, plot_labs)
 })
+
+test_that("plots showing absolute numbers work", {
+  p  = barplotter(data = iris, x_val =  "Species", y_val = "Petal_mean",
+                  pct = FALSE)
+
+  g = ggplot2::ggplot_build(p)
+
+  expect_equal(g[["plot"]][["labels"]][["label"]], "number")
+})
+
+test_that("plots showing percentages work", {
+  p  = barplotter(data = iris, x_val =  "Species", y_val = "Petal_mean",
+                  pct = TRUE)
+
+  g = ggplot2::ggplot_build(p)
+
+  expect_equal(g[["plot"]][["labels"]][["label"]], "percent")
+})
+
+test_that("legend title labeling works", {
+  p  = barplotter(data = iris, x_val =  "Species", y_val = "Petal_mean",
+                  legend_lab = "test")
+
+  g = ggplot2::ggplot_build(p)
+
+  expect_equal(g[["plot"]][["labels"]][["fill"]], "test")
+})
+
+test_that("legend key labeling works", {
+  p  = barplotter(data = iris, x_val =  "Species", y_val = "Petal_mean",
+                  labels = c("one", "two"))
+
+  g = ggplot2::ggplot_build(p)
+
+  expect_equal(g$plot$scales$scales[[2]]$labels, c("one", "two"))
+})
