@@ -9,7 +9,8 @@
 #' @param ... Name(s) of color(s) to be used. Valid color names: `blue`, `darkblue`,
 #' `purple`, `darkpurple`, `cyan`, `darkcyan`, `turkis`, `darkturkis`, `green`,
 #' `darkgreen`, `yellow`, `darkyellow`, `orange`, `darkorange`, `red`, `darkred`,
-#' `magenta`, `darkmagenta`, `grey`, `darkgrey`, `white`.
+#' `magenta`, `darkmagenta`, `grey`, `darkgrey`, `white`, `trxred`, `trxlightred`,
+#' `trxblue`, `trxlightblue`, `trxyellow`, `trxpalegreen`.
 #'
 #' @return A named vector with the chosen colors and their corresponding hex codes.
 #' @export
@@ -38,7 +39,15 @@ au_colors = function(...) {
     "darkmagenta" = "#5f0030",
     "grey" = "#878787",
     "darkgrey" = "#4b4b4a",
-    "white" = "#ffffff"
+    "white" = "#ffffff",
+
+    # TRACERx colors
+    "trxred" = "#8A3A39",
+    "trxlightred" = "#DDC5C5",
+    "trxblue" = "#36648B",
+    "trxlightblue" = "#C4D3DD",
+    "trxyellow" = "#CFAD6A",
+    "trxpalegreen" = "#56B6AB"
   )
 
   colors = c(...)

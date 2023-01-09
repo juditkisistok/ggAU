@@ -67,8 +67,7 @@ test_that("title and labels are correct", {
 
 test_that("comparisons work", {
   p = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
-                    comp_vec = list(c("setosa", "virginica"))
-                    )
+                    comp_vec = list(c("setosa", "virginica")))
 
   constructor_str = paste(as.character(p[["layers"]][[4]][["constructor"]][[1]]))
 

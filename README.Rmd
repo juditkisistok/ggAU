@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![codecov](https://codecov.io/gh/juditkisistok/ggAU/branch/master/graph/badge.svg?token=QOHSNRTDEN)](https://codecov.io/gh/juditkisistok/ggAU)
 <!-- badges: end -->
 
-The goal of ggAU is to simplify the process of creating publication-ready visualizations that follow the [Aarhus University color scheme](https://medarbejdere.au.dk/en/administration/communication/guidelines/guidelinesforcolours). 
+The goal of ggAU is to simplify the process of creating publication-ready visualizations that follow the [Aarhus University color scheme](https://medarbejdere.au.dk/en/administration/communication/guidelines/guidelinesforcolours). It also includes a color scheme inspired by the [TRACERx publications](https://www.nature.com/collections/haffgaicaf). 
 
 ## Installation
 
@@ -42,6 +42,8 @@ unikn::seecol(au_color_palette(style = "dark"), main = "Dark",
 unikn::seecol(au_color_palette(style = "hotandcold"), main = "Hot and cold", 
               grid = F, rgb = F)
 unikn::seecol(au_color_palette(style = "hotandcold_dark"), main = "Hot and cold (dark)", 
+              grid = F, rgb = F)
+unikn::seecol(au_color_palette(style = "tracerx"), main = "TRACERx", 
               grid = F, rgb = F)
 ```
 

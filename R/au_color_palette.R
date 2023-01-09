@@ -3,7 +3,7 @@
 #' Helper function to generate branded color palettes.
 #'
 #' @param style String, name of a pre-defined color palette (`light`, `dark`,
-#' `hotandcold`, `hotandcold_dark`), or `custom`. The default palette is `light`.
+#' `hotandcold`, `hotandcold_dark`, `tracerx`), or `custom`. The default palette is `light`.
 #' @param reverse Boolean, TRUE will reverse the color order.
 #' @param colors Vector of AU color names. Only used when `style = "custom"` is passed in.
 #'
@@ -26,6 +26,10 @@ au_color_palette = function(style = "light", reverse = FALSE, colors = NA) {
     # continuous heatmap palettes
     hotandcold = au_colors("blue", "white", "red"),
     hotandcold_dark = au_colors("darkblue", "white", "darkred"),
+
+    # TRACERx palette
+    tracerx = au_colors("trxred", "trxlightred", "trxblue", "trxlightblue",
+                        "trxyellow", "trxpalegreen"),
 
     # palette for testing
     test = au_colors("blue", "yellow", "red")

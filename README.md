@@ -13,6 +13,8 @@ The goal of ggAU is to simplify the process of creating
 publication-ready visualizations that follow the [Aarhus University
 color
 scheme](https://medarbejdere.au.dk/en/administration/communication/guidelines/guidelinesforcolours).
+It also includes a color scheme inspired by the [TRACERx
+publications](https://www.nature.com/collections/haffgaicaf).
 
 ## Installation
 
@@ -54,6 +56,13 @@ unikn::seecol(au_color_palette(style = "hotandcold_dark"), main = "Hot and cold 
 ```
 
 <img src="man/figures/README-palettes-4.png" width="100%" />
+
+``` r
+unikn::seecol(au_color_palette(style = "tracerx"), main = "TRACERx", 
+              grid = F, rgb = F)
+```
+
+<img src="man/figures/README-palettes-5.png" width="100%" />
 
 # Examples
 
