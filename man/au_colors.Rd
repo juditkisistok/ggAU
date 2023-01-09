@@ -10,7 +10,8 @@ au_colors(...)
 \item{...}{Name(s) of color(s) to be used. Valid color names: \code{blue}, \code{darkblue},
 \code{purple}, \code{darkpurple}, \code{cyan}, \code{darkcyan}, \code{turkis}, \code{darkturkis}, \code{green},
 \code{darkgreen}, \code{yellow}, \code{darkyellow}, \code{orange}, \code{darkorange}, \code{red}, \code{darkred},
-\code{magenta}, \code{darkmagenta}, \code{grey}, \code{darkgrey}, \code{white}.}
+\code{magenta}, \code{darkmagenta}, \code{grey}, \code{darkgrey}, \code{white}, \code{trxred}, \code{trxlightred},
+\code{trxblue}, \code{trxlightblue}, \code{trxyellow}, \code{trxpalegreen}.}
 }
 \value{
 A named vector with the chosen colors and their corresponding hex codes.

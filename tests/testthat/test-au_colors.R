@@ -16,5 +16,5 @@ test_that("function returns the correct hex codes", {
 })
 
 test_that("if no argument is passed in, all colors are returned", {
-  expect_equal(length(au_colors()), 21)
+  expect_equal(length(au_colors()), 27)
 })

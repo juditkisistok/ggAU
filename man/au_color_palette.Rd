@@ -8,7 +8,7 @@ au_color_palette(style = "light", reverse = FALSE, colors = NA)
 }
 \arguments{
 \item{style}{String, name of a pre-defined color palette (\code{light}, \code{dark},
-\code{hotandcold}, \code{hotandcold_dark}), or \code{custom}. The default palette is \code{light}.}
+\code{hotandcold}, \code{hotandcold_dark}, \code{tracerx}), or \code{custom}. The default palette is \code{light}.}
 
 \item{reverse}{Boolean, TRUE will reverse the color order.}
 
