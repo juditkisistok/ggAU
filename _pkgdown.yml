@@ -11,6 +11,7 @@ reference:
   contents:
   - barplotter
   - violinplotter
+  - scatterplotter
 
 - title: ggplot2 helpers
   contents:

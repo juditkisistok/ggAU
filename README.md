@@ -233,3 +233,30 @@ cowplot::plot_grid(minimal_barplot, full_custom_barplot)
 ```
 
 <img src="man/figures/README-barplotter-examples-1.png" width="100%" />
+
+## Scatterplotter
+
+This function creates a scatterplot, fits a . Similarly to
+`violinplotter`, many customization options are available, but
+specifying `data`, `x_lab` and `y_lab` is sufficient for creating a
+basic plot.
+
+``` r
+minimal_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length")
+
+full_custom_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length", 
+                                         col_val = "Species", style = "tracerx",
+                                         colors = au_colors(), y_lab = "Sepal Length",
+                                         x_lab = "Sepal Width", 
+                                         title = "Comparing sepal widths and lengths per species", 
+                                         fit = "grouped",
+                                         discrete = TRUE, linecolor = "black", 
+                                         pointcolor = "black", corr_method = "pearson", 
+                                         alternative = "two.sided", fit_method = "glm", 
+                                         se = FALSE, labels = NA) 
+
+cowplot::plot_grid(minimal_scatterplot, full_custom_scatterplot)
+#> `geom_smooth()` using formula = 'y ~ x'
+```
+
+<img src="man/figures/README-scatterplotter-examples-1.png" width="100%" />
