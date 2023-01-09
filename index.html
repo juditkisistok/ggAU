@@ -55,7 +55,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of ggAU is to simplify the process of creating publication-ready visualizations that follow the <a href="https://medarbejdere.au.dk/en/administration/communication/guidelines/guidelinesforcolours" class="external-link">Aarhus University color scheme</a>.</p>
+<p>The goal of ggAU is to simplify the process of creating publication-ready visualizations that follow the <a href="https://medarbejdere.au.dk/en/administration/communication/guidelines/guidelinesforcolours" class="external-link">Aarhus University color scheme</a>. It also includes a color scheme inspired by the <a href="https://www.nature.com/collections/haffgaicaf" class="external-link">TRACERx publications</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -84,6 +84,10 @@
 <code class="sourceCode R"><span><span class="fu">unikn</span><span class="fu">::</span><span class="fu">seecol</span><span class="op">(</span><span class="fu"><a href="reference/au_color_palette.html">au_color_palette</a></span><span class="op">(</span>style <span class="op">=</span> <span class="st">"hotandcold_dark"</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Hot and cold (dark)"</span>, </span>
 <span>              grid <span class="op">=</span> <span class="cn">F</span>, rgb <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-palettes-4.png" width="100%"></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">unikn</span><span class="fu">::</span><span class="fu">seecol</span><span class="op">(</span><span class="fu"><a href="reference/au_color_palette.html">au_color_palette</a></span><span class="op">(</span>style <span class="op">=</span> <span class="st">"tracerx"</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"TRACERx"</span>, </span>
+<span>              grid <span class="op">=</span> <span class="cn">F</span>, rgb <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-palettes-5.png" width="100%"></p>
 </div>
 </div>
 <div class="section level1">
@@ -91,7 +95,7 @@
 </h1>
 <p>The <code>scale_fill_au</code> and <code>scale_color_au</code> functions allow you to apply the pre-defined color palettes.</p>
 <p>The default color scheme is <code>light</code> and the default variable type is continuous. You can add <code>discrete = T</code> for categorical variable color schemes.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">iris_df</span> <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">iris</span>, <span class="va">Species</span><span class="op">)</span>, </span>
 <span>                           `Mean petal width` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">Petal.Width</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -110,7 +114,7 @@
 <span><span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html" class="external-link">plot_grid</a></span><span class="op">(</span><span class="va">light_plot_fill</span>, <span class="va">dark_plot_fill</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-scale_fill_au-examples-1.png" width="100%"></p>
 <p>It is also possible to define your own mix of colors - you can retrieve a vector of AU hex codes by color name.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_custom_style</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">"yellow"</span>, <span class="st">"red"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">iris_df</span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, </span>
@@ -120,7 +124,7 @@
 <span>  <span class="fu"><a href="reference/scale_fill_au.html">scale_fill_au</a></span><span class="op">(</span>discrete <span class="op">=</span> <span class="cn">T</span>, style <span class="op">=</span> <span class="st">"custom"</span>, colors <span class="op">=</span> <span class="va">my_custom_style</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-scale_fill_au-custom-1.png" width="100%"></p>
 <p>The continuous fill scale works in a similar way, both with the built-in and custom color schemes.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dummy_data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"var_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                          y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"var_"</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">11</span>, <span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">dummy_data</span><span class="op">$</span><span class="va">z</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">100</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span>
@@ -138,7 +142,7 @@
 <span><span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html" class="external-link">plot_grid</a></span><span class="op">(</span><span class="va">cont_fill_1</span>, <span class="va">cont_fill_2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-scale_fill_au-continuous-1.png" width="100%"></p>
 <p>The color aesthetic can be changed in a similar way, using <code>scale_color_au</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">discrete_cols</span> <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Width</span>, y <span class="op">=</span> <span class="va">Petal.Length</span>, color <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5</span>, alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggpubr</span><span class="fu">::</span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/theme_pubr.html" class="external-link">theme_pubr</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -178,7 +182,7 @@
 <h2 id="violinplotter">Violinplotter<a class="anchor" aria-label="anchor" href="#violinplotter"></a>
 </h2>
 <p>The function has many customization options, however, specifying <code>data</code>, <code>x_val</code> and <code>y_val</code> is enough for getting a basic plot up and running.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">minimal</span> <span class="op">=</span> <span class="fu"><a href="reference/violinplotter.html">violinplotter</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">iris</span>, x_val <span class="op">=</span>  <span class="st">"Species"</span>, y_val <span class="op">=</span> <span class="st">"Petal.Width"</span>,</span>
 <span>                        title <span class="op">=</span> <span class="st">"Minimal example"</span><span class="op">)</span></span>
 <span></span>
@@ -205,7 +209,7 @@
 <h2 id="barplotter">Barplotter<a class="anchor" aria-label="anchor" href="#barplotter"></a>
 </h2>
 <p>This function creates a bar plot and displays the Fisher’s test p-value as a subtitle. Similarly to <code>violinplotter</code>, many customization options are available, but specifying <code>data</code>, <code>x_lab</code> and <code>y_lab</code> is sufficient for creating a basic plot.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># modifying the iris data to include two categorical variables</span></span>
 <span><span class="va">iris</span> <span class="op">=</span> <span class="va">iris</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Petal_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">Petal.Length</span> <span class="op">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">Petal.Length</span><span class="op">)</span>, <span class="st">"above_mean"</span>, <span class="st">"below_mean"</span><span class="op">)</span><span class="op">)</span></span>
