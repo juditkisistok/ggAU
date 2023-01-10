@@ -198,18 +198,21 @@ cowplot::plot_grid(minimal_barplot, full_custom_barplot)
 This function creates a scatterplot, fits a . Similarly to `violinplotter`, many customization options are available, but specifying `data`, `x_lab` and `y_lab` is sufficient for creating a basic plot.
 
 ```{r scatterplotter-examples, dpi = 300, fig.width=10, fig.height=5}
-minimal_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length")
+minimal_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length",
+                                     linecolor = au_colors("darkred"), 
+                                     pointcolor = au_colors("darkblue"),
+                                     fit = "single")
 
 full_custom_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length", 
-                                         col_val = "Species", style = "tracerx",
-                                         colors = au_colors(), y_lab = "Sepal Length",
-                                         x_lab = "Sepal Width", 
+                                         col_val = "Species", style = "custom",
+                                         colors = c("trxred", "trxblue", "trxyellow"),
+                                         y_lab = "Sepal Length", x_lab = "Sepal Width", 
                                          title = "Comparing sepal widths and lengths per species", 
-                                         fit = "grouped",
-                                         discrete = TRUE, linecolor = "black", 
-                                         pointcolor = "black", corr_method = "pearson", 
-                                         alternative = "two.sided", fit_method = "glm", 
-                                         se = FALSE, labels = c("Species 1", "Species 2", "Species 3")) 
+                                         fit = "grouped", corr_method = "pearson", 
+                                         alternative = "two.sided", fit_method = "lm",
+                                         se = FALSE, formula = "y ~ x",
+                                         legend_lab = "Species", discrete = TRUE,
+                                         labels = c("Species 1", "Species 2", "Species 3"))
 
 cowplot::plot_grid(minimal_scatterplot, full_custom_scatterplot)
 ```

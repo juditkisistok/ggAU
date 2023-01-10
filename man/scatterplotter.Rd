@@ -14,6 +14,7 @@ scatterplotter(
   y_lab = "y",
   x_lab = "x",
   title = "",
+  legend_lab = "",
   fit = "none",
   discrete = TRUE,
   linecolor = "black",
@@ -23,12 +24,69 @@ scatterplotter(
   fit_method = "glm",
   se = FALSE,
   labels = NA,
+  formula = "y ~ x",
   ...
 )
 }
 \arguments{
-\item{...}{}
+\item{data}{The \code{data.frame} to be used for the visualization.}
+
+\item{x_val}{string, the name of the column to plot on the x axis.}
+
+\item{y_val}{string, the name of the column to plot on the y axis.}
+
+\item{col_val}{string, name of the column to use for coloring points. Default is \code{NA}.}
+
+\item{style}{string, palette style to be used for \code{scale_color_au}. Default is \code{"light"}.}
+
+\item{colors}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{au_colors()}.
+Custom colors are only applied when \code{style = "custom"}.}
+
+\item{y_lab}{string, the y axis label. Default is \code{"y"}.}
+
+\item{x_lab}{string, the x axis label. Default is \code{"x"}.}
+
+\item{title}{string, the title of the plot to be displayed on top. Default is \code{""}.}
+
+\item{legend_lab}{string, the legend title. Default is \code{"color"}.}
+
+\item{fit}{string, \code{"single"}, \code{"grouped"}, or \code{"none"}. When using \code{"single"}, the model is fit to the entire dataset
+displayed on the plot. When \code{"grouped"} is used, a separate line is fit to the groups defined by \code{col_val}.
+When \code{none} is selected, no line is being fit. Default is \code{"none"}.}
+
+\item{discrete}{boolean, \code{TRUE} applies a discrete color scale, \code{FALSE} applies a
+continuous color scale. Default is \code{TRUE}.}
+
+\item{linecolor}{string, the color of the fitted line in \code{single} mode. Default is \code{"black"}.}
+
+\item{pointcolor}{sting, the color to use for points when \code{col_val = NA}.Default is \code{"black"}.}
+
+\item{corr_method}{string, the correlation method to pass into \code{stat_cor()}. Default is \code{"pearson"}.}
+
+\item{alternative}{string, the alternative to pass into \code{stat_cor()}. Default is \code{"two.sided"}.}
+
+\item{fit_method}{string, the fitting method passed into \code{geom_smooth()}. Default is \code{"glm"}.}
+
+\item{se}{boolean, when \code{TRUE}, the confidence interval around the fitted line is displayed. Default is \code{FALSE}.}
+
+\item{labels}{vector, the legend annotations. Default is the unique values in \code{y_val}.}
+
+\item{formula}{string, the formula to use for fitting the line with \code{geom_smooth()}. Default is \code{"y ~ x"}.}
+
+\item{...}{other parameters passed into \code{geom_point()} or \code{stat_cor()}.}
+}
+\value{
+A ggplot object.
 }
 \description{
-Create scatterplots
+Enables the creation of scatterplots in a convenient and customizable manner.
+Additionally, it allows the user to calculate a correlation metric of interest,
+and fit a linear or loess line to the data.
+}
+\examples{
+scatterplotter(iris, "Sepal.Width", "Sepal.Length",col_val = "Species", style = "tracerx",
+y_lab = "Sepal Length", x_lab = "Sepal Width",  title = "Comparing sepal widths and lengths per species",
+fit = "single", corr_method = "pearson", legend_lab = "Species", se = FALSE,
+labels = c("Species 1", "Species 2", "Species 3"))
+
 }

@@ -37,7 +37,7 @@ barplotter(
 \item{style}{string, palette style to be used for \code{scale_fill_au}. Default is \code{light}.}
 
 \item{colors}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{au_colors()}.
-Custom colors are only applied when \code{fill_style = "custom"}.}
+Custom colors are only applied when \code{style = "custom"}.}
 
 \item{y_lab}{string, the y axis label.}
 

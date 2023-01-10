@@ -11,7 +11,7 @@
 #' @param pct boolean, if `TRUE`, percentages are displayed on the bars, if `FALSE`, the absolute numbers are shown.
 #' @param style string, palette style to be used for `scale_fill_au`. Default is `light`.
 #' @param colors vector containing the colors to be used for the `fill` aesthetic. Default is `au_colors()`.
-#' Custom colors are only applied when `fill_style = "custom"`.
+#' Custom colors are only applied when `style = "custom"`.
 #' @param y_lab string, the y axis label.
 #' @param x_lab string, the x axis label.
 #' @param title string, the title of the plot to be displayed on top.
