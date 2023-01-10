@@ -253,10 +253,9 @@ full_custom_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length",
                                          discrete = TRUE, linecolor = "black", 
                                          pointcolor = "black", corr_method = "pearson", 
                                          alternative = "two.sided", fit_method = "glm", 
-                                         se = FALSE, labels = NA) 
+                                         se = FALSE, labels = c("Species 1", "Species 2", "Species 3")) 
 
 cowplot::plot_grid(minimal_scatterplot, full_custom_scatterplot)
-#> `geom_smooth()` using formula = 'y ~ x'
 ```
 
 <img src="man/figures/README-scatterplotter-examples-1.png" width="100%" />
