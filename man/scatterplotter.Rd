@@ -25,6 +25,8 @@ scatterplotter(
   se = FALSE,
   labels = NA,
   formula = "y ~ x",
+  pointsize = 1,
+  point_alpha = 1,
   ...
 )
 }
@@ -73,7 +75,11 @@ continuous color scale. Default is \code{TRUE}.}
 
 \item{formula}{string, the formula to use for fitting the line with \code{geom_smooth()}. Default is \code{"y ~ x"}.}
 
-\item{...}{other parameters passed into \code{geom_point()} or \code{stat_cor()}.}
+\item{pointsize}{num, point size passed into \code{geom_point()}. Default is \code{1}.}
+
+\item{point_alpha}{num, point opacity passed into \code{geom_point()}. Default is \code{1}.}
+
+\item{...}{other parameters passed into \code{stat_cor()}.}
 }
 \value{
 A ggplot object.

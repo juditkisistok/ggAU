@@ -17,6 +17,8 @@
 #' @param discrete boolean, `TRUE` applies a discrete color scale, `FALSE` applies a
 #' continuous color scale. Default is `TRUE`.
 #' @param pointcolor sting, the color to use for points when `col_val = NA`.Default is `"black"`.
+#' @param pointsize num, point size passed into `geom_point()`. Default is `1`.
+#' @param point_alpha num, point opacity passed into `geom_point()`. Default is `1`.
 #' @param corr_method string, the correlation method to pass into `stat_cor()`. Default is `"pearson"`.
 #' @param alternative string, the alternative to pass into `stat_cor()`. Default is `"two.sided"`.
 #' @param fit string, `"single"`, `"grouped"`, or `"none"`. When using `"single"`, the model is fit to the entire dataset
@@ -28,7 +30,7 @@
 #' @param formula string, the formula to use for fitting the line with `geom_smooth()`. Default is `"y ~ x"`.
 #' @param labels vector, the legend annotations. Default is the unique values in `y_val`.
 #' @param legend_lab string, the legend title. Default is `"color"`.
-#' @param ... other parameters passed into `geom_point()` or `stat_cor()`.
+#' @param ... other parameters passed into `stat_cor()`.
 #'
 #' @return A ggplot object.
 #' @export
@@ -45,27 +47,29 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
                           discrete = TRUE, linecolor = "black", pointcolor = "black",
                           corr_method = "pearson", alternative = "two.sided",
                           fit_method = "glm", se = FALSE, labels = NA,
-                          formula = "y ~ x", ...) {
+                          formula = "y ~ x", pointsize = 1, point_alpha = 1, ...) {
 
   if (fit == "single") {
 
     if (is.na(col_val)) {
       p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val))) +
-        ggplot2::geom_point(color = pointcolor)
+        ggplot2::geom_point(color = au_colors(pointcolor),
+                            size = pointsize, alpha = point_alpha)
 
     } else {
       p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val))) +
-        ggplot2::geom_point(ggplot2::aes(color = get(col_val)), ...)
+        ggplot2::geom_point(ggplot2::aes(color = get(col_val)),
+                            size = pointsize, alpha = point_alpha)
     }
 
     p = p +
-      ggplot2::geom_smooth(method = fit_method, color = linecolor, se = se,
-                           formula = formula(formula))
+      ggplot2::geom_smooth(method = fit_method, color = au_colors(linecolor),
+                           se = se, formula = formula(formula))
 
   } else if (fit == "grouped") {
     p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val),
                                            color = get(col_val))) +
-      ggplot2::geom_point(...) +
+      ggplot2::geom_point(size = pointsize, alpha = point_alpha) +
       ggplot2::geom_smooth(method = fit_method, se = se, formula = formula(formula))
 
   } else {
@@ -73,12 +77,13 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
     if (is.na(col_val)) {
 
       p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val))) +
-        ggplot2::geom_point(color = pointcolor, ...)
+        ggplot2::geom_point(color = au_colors(pointcolor),
+                            size = pointsize, alpha = point_alpha)
 
       } else {
         p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val),
                                                color = get(col_val))) +
-          ggplot2::geom_point(...)
+          ggplot2::geom_point(size = pointsize, alpha = point_alpha)
       }
 
   }
@@ -107,3 +112,4 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
 
   return (p)
 }
+

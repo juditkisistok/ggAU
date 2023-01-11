@@ -243,8 +243,8 @@ basic plot.
 
 ``` r
 minimal_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length",
-                                     linecolor = au_colors("darkred"), 
-                                     pointcolor = au_colors("darkblue"),
+                                     linecolor = "darkred", 
+                                     pointcolor ="darkblue",
                                      fit = "single")
 
 full_custom_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length", 
@@ -256,7 +256,8 @@ full_custom_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length",
                                          alternative = "two.sided", fit_method = "lm",
                                          se = FALSE, formula = "y ~ x",
                                          legend_lab = "Species", discrete = TRUE,
-                                         labels = c("Species 1", "Species 2", "Species 3"))
+                                         labels = c("Species 1", "Species 2", "Species 3"),
+                                         pointsize = 5, point_alpha = 0.7)
 
 cowplot::plot_grid(minimal_scatterplot, full_custom_scatterplot)
 ```
