@@ -243,8 +243,8 @@ basic plot.
 
 ``` r
 minimal_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length",
-                                     linecolor = "darkred", 
-                                     pointcolor ="darkblue",
+                                     linecolor = au_colors("darkred"), 
+                                     pointcolor = au_colors("darkblue"),
                                      fit = "single")
 
 full_custom_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length", 

@@ -53,7 +53,7 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
 
     if (is.na(col_val)) {
       p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val))) +
-        ggplot2::geom_point(color = au_colors(pointcolor),
+        ggplot2::geom_point(color = pointcolor,
                             size = pointsize, alpha = point_alpha)
 
     } else {
@@ -63,7 +63,7 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
     }
 
     p = p +
-      ggplot2::geom_smooth(method = fit_method, color = au_colors(linecolor),
+      ggplot2::geom_smooth(method = fit_method, color = linecolor,
                            se = se, formula = formula(formula))
 
   } else if (fit == "grouped") {
@@ -77,7 +77,7 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
     if (is.na(col_val)) {
 
       p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val))) +
-        ggplot2::geom_point(color = au_colors(pointcolor),
+        ggplot2::geom_point(color = pointcolor,
                             size = pointsize, alpha = point_alpha)
 
       } else {
