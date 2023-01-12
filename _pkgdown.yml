@@ -19,3 +19,7 @@ reference:
   - au_color_palette
   - scale_color_au
   - scale_fill_au
+
+- title: Data
+  contents:
+  - volcanodata
