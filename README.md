@@ -284,7 +284,8 @@ full_custom_volcanoplot = volcanoplotter(volcanodata, x_val = "logFC", y_val = "
                                          label_col = "SYMBOL", lab_size = 3, dirs = "y", nudge_x1 = 10,
                                          nudge_x2 = -10, nudge_y1 = 0, nudge_y2 = 0, labsize = NA,
                                          fillcol =  scales::alpha(c("white"), 0),
-                                         segment.size = 0.2, max.overlaps = 100, label.padding = 0.1)
+                                         segment.size = 0.2, max.overlaps = 100, label.padding = 0.1,
+                                         lim = c(1, 1e-11))
 
 cowplot::plot_grid(minimal_volcanoplot, full_custom_volcanoplot)
 ```

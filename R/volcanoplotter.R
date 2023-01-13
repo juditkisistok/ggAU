@@ -23,6 +23,8 @@
 #' @param nudge_y2
 #' @param labsize
 #' @param fillcol
+#' @param brk
+#' @param lim
 #' @param ...
 #'
 #' @return
@@ -35,7 +37,8 @@ volcanoplotter = function(data, x_val, y_val, nonsig_col = "grey", pointsize = 1
                           pval_cutoff = 0.05, add_labels = F, num_lab_genes = 15,
                           label_col = NA, lab_size = 3, dirs = "y", nudge_x1 = 10,
                           nudge_x2 = -10, nudge_y1 = 0, nudge_y2 = 0, labsize = NA,
-                          fillcol =  scales::alpha(c("white"), 0), ...) {
+                          fillcol =  scales::alpha(c("white"), 0), brk = ggplot2::waiver(),
+                          lim = NULL, ...) {
 
   p = ggplot2::ggplot(data) +
       # draw the base including all points
@@ -53,7 +56,8 @@ volcanoplotter = function(data, x_val, y_val, nonsig_col = "grey", pointsize = 1
       ggplot2::geom_point(data = dplyr::filter(data, get(x_val) < 0 & get(y_val) < pval_cutoff),
                         ggplot2::aes(x = get(x_val), y = get(y_val)), color = sig_neg_col,
                         size = pointsize, alpha = point_alpha) +
-      ggplot2::scale_y_continuous(trans = ggforce::trans_reverser('log10')) +
+      ggplot2::scale_y_continuous(trans = ggforce::trans_reverser('log10'),
+                                  breaks = brk, limits = lim) +
       ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
 
   if (add_labels) {
