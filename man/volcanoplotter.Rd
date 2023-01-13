@@ -18,7 +18,7 @@ volcanoplotter(
   sig_pos_col = au_colors("red"),
   pval_cutoff = 0.05,
   add_labels = F,
-  num_lab_genes = 15,
+  num_lab = 10,
   label_col = NA,
   lab_size = 3,
   dirs = "y",
@@ -26,14 +26,77 @@ volcanoplotter(
   nudge_x2 = -10,
   nudge_y1 = 0,
   nudge_y2 = 0,
-  labsize = NA,
+  lab_bordersize = NA,
   fillcol = scales::alpha(c("white"), 0),
+  brk = ggplot2::waiver(),
+  lim = NULL,
   ...
 )
 }
 \arguments{
-\item{...}{}
+\item{data}{The \code{data.frame} to be used for the visualization.}
+
+\item{x_val}{string, the name of the column to plot on the x axis.}
+
+\item{y_val}{string, the name of the column to plot on the y axis.}
+
+\item{nonsig_col}{string, the color to use for the nonsignificant points. Default is \code{"grey"}.}
+
+\item{pointsize}{num, point size passed into \code{geom_point()}. Default is \code{1}.}
+
+\item{point_alpha}{num, point opacity passed into \code{geom_point()}. Default is \code{1}.}
+
+\item{y_lab}{string, the y axis label. Default is \code{"P-value"}.}
+
+\item{x_lab}{string, the x axis label. Default is \code{"logFC"}.}
+
+\item{title}{string, the title of the plot to be displayed on top. Default is \code{""}.}
+
+\item{sig_neg_col}{string, color to use for the significant negative points. Default is \code{au_colors("blue")}.}
+
+\item{sig_pos_col}{string, color to use for the significant positive points. Default is \code{au_colors("red")}.}
+
+\item{pval_cutoff}{num, significance cutoff. Default is \code{0.05}.}
+
+\item{add_labels}{boolean, if \code{TRUE}, the number of points determined by \code{num_lab} are labelled.
+Default is \code{FALSE}.}
+
+\item{num_lab}{num, the number of points to label on the plot. Default is \code{10}.}
+
+\item{label_col}{string, name of the column to use for labelling. Default is \code{NA}.}
+
+\item{lab_size}{num, size of the labels. Default is \code{3}.}
+
+\item{dirs}{string, direction of position adjustment passed into \code{geom_label_repel()}.
+Possible values are \code{x}, \code{y} and \code{both}. Default is \code{x}.}
+
+\item{nudge_x1}{num, horizontal adjustment of the positive significant labels. Default is \code{10}.}
+
+\item{nudge_x2}{num, horizontal adjustment of the negative significant labels. Default is \code{-10}.}
+
+\item{nudge_y1}{num, vertical adjustment of the positive significant labels. Default is \code{0}.}
+
+\item{nudge_y2}{num, vertical adjustment of the negative significant labels. Default is \code{0}.}
+
+\item{lab_bordersize}{num, width of the label border. Default is \code{NA}.}
+
+\item{fillcol}{string, background color for the labels. Default is transparent.}
+
+\item{brk}{vector, list of y-axis breaks.}
+
+\item{lim}{vector, y-axis limits.}
+
+\item{...}{other parameters passed into \code{geom_label_repel()}.}
+}
+\value{
+A ggplot object.
 }
 \description{
-Volcanoplotter
+Enables convenient visualization of differential expression data.
+}
+\examples{
+
+volcanoplotter(volcanodata, x_val = "logFC", y_val = "adj.P.Val", add_labels = T,
+label_col = "SYMBOL", num_lab = 5)
+
 }

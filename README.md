@@ -280,9 +280,9 @@ full_custom_volcanoplot = volcanoplotter(volcanodata, x_val = "logFC", y_val = "
                                          title = "Differential expression analysis",
                                          sig_neg_col = au_colors("trxblue"), 
                                          sig_pos_col = au_colors("trxred"),
-                                         pval_cutoff = 0.05, add_labels = T, num_lab_genes = 10,
+                                         pval_cutoff = 0.05, add_labels = T, num_lab = 10,
                                          label_col = "SYMBOL", lab_size = 3, dirs = "y", nudge_x1 = 10,
-                                         nudge_x2 = -10, nudge_y1 = 0, nudge_y2 = 0, labsize = NA,
+                                         nudge_x2 = -10, nudge_y1 = 0, nudge_y2 = 0, lab_bordersize = NA,
                                          fillcol =  scales::alpha(c("white"), 0),
                                          segment.size = 0.2, max.overlaps = 100, label.padding = 0.1,
                                          lim = c(1, 1e-11))
