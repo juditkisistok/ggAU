@@ -12,6 +12,7 @@ reference:
   - barplotter
   - violinplotter
   - scatterplotter
+  - volcanoplotter
 
 - title: ggplot2 helpers
   contents:

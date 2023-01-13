@@ -236,10 +236,10 @@ cowplot::plot_grid(minimal_barplot, full_custom_barplot)
 
 ## Scatterplotter
 
-This function creates a scatterplot, fits a . Similarly to
-`violinplotter`, many customization options are available, but
-specifying `data`, `x_lab` and `y_lab` is sufficient for creating a
-basic plot.
+This function creates a scatterplot, fits a smooth or linear line to the
+data, and calculates correlation. Similarly to `violinplotter`, many
+customization options are available, but specifying `data`, `x_lab` and
+`y_lab` is sufficient for creating a basic plot.
 
 ``` r
 minimal_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length",
@@ -263,3 +263,30 @@ cowplot::plot_grid(minimal_scatterplot, full_custom_scatterplot)
 ```
 
 <img src="man/figures/README-scatterplotter-examples-1.png" width="100%" />
+
+## Volcanoplotter
+
+This function creates a volcano plot, and allows flexible labelling.
+Similarly to `violinplotter`, many customization options are available,
+but specifying `data`, `x_lab` and `y_lab` is sufficient for creating a
+basic plot.
+
+``` r
+minimal_volcanoplot = volcanoplotter(volcanodata, x_val = "logFC", y_val = "adj.P.Val")
+
+full_custom_volcanoplot = volcanoplotter(volcanodata, x_val = "logFC", y_val = "adj.P.Val", 
+                                         nonsig_col = "grey", pointsize = 3, point_alpha = 0.5, 
+                                         y_lab = "P-value (FDR-adjusted)", x_lab = "log10(fold change)", 
+                                         title = "Differential expression analysis",
+                                         sig_neg_col = au_colors("trxblue"), 
+                                         sig_pos_col = au_colors("trxred"),
+                                         pval_cutoff = 0.05, add_labels = T, num_lab_genes = 10,
+                                         label_col = "SYMBOL", lab_size = 3, dirs = "y", nudge_x1 = 10,
+                                         nudge_x2 = -10, nudge_y1 = 0, nudge_y2 = 0, labsize = NA,
+                                         fillcol =  scales::alpha(c("white"), 0),
+                                         segment.size = 0.2, max.overlaps = 100, label.padding = 0.1)
+
+cowplot::plot_grid(minimal_volcanoplot, full_custom_volcanoplot)
+```
+
+<img src="man/figures/README-volcanoplotter-examples-1.png" width="100%" />
