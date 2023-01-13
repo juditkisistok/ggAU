@@ -36,13 +36,13 @@
 #'
 #' @examples
 #'
-#' volcanoplotter(volcanodata, x_val = "logFC", y_val = "adj.P.Val", add_labels = T,
-#' label_col = "SYMBOL", num_lab = 5)
+#' volcanoplotter(volcanodata, x_val = "logFC", y_val = "adj.P.Val",
+#' add_labels = TRUE, label_col = "SYMBOL", num_lab = 5)
 #'
 volcanoplotter = function(data, x_val, y_val, nonsig_col = "grey", pointsize = 1,
                           point_alpha = 1, y_lab = "P-value", x_lab = "logFC", title = "",
                           sig_neg_col = au_colors("blue"), sig_pos_col = au_colors("red"),
-                          pval_cutoff = 0.05, add_labels = F, num_lab = 10,
+                          pval_cutoff = 0.05, add_labels = FALSE, num_lab = 10,
                           label_col = NA, lab_size = 3, dirs = "y", nudge_x1 = 10,
                           nudge_x2 = -10, nudge_y1 = 0, nudge_y2 = 0, lab_bordersize = NA,
                           fillcol =  scales::alpha(c("white"), 0), brk = ggplot2::waiver(),

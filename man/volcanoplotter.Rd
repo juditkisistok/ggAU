@@ -17,7 +17,7 @@ volcanoplotter(
   sig_neg_col = au_colors("blue"),
   sig_pos_col = au_colors("red"),
   pval_cutoff = 0.05,
-  add_labels = F,
+  add_labels = FALSE,
   num_lab = 10,
   label_col = NA,
   lab_size = 3,
@@ -96,7 +96,7 @@ Enables convenient visualization of differential expression data.
 }
 \examples{
 
-volcanoplotter(volcanodata, x_val = "logFC", y_val = "adj.P.Val", add_labels = T,
-label_col = "SYMBOL", num_lab = 5)
+volcanoplotter(volcanodata, x_val = "logFC", y_val = "adj.P.Val",
+add_labels = TRUE, label_col = "SYMBOL", num_lab = 5)
 
 }
