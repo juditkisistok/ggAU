@@ -201,6 +201,7 @@
 <span>                            col_vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span><span class="op">)</span>, </span>
 <span>                            fill_vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"green"</span><span class="op">)</span>,</span>
 <span>                            display_n <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
 <span></span>
 <span><span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html" class="external-link">plot_grid</a></span><span class="op">(</span><span class="va">minimal</span>, <span class="va">minimal_filtered</span>, <span class="va">full_custom</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-violinplotter-example-1.png" width="100%"></p>
@@ -224,8 +225,7 @@
 <span>                                 y_lab <span class="op">=</span> <span class="st">"Number of individuals"</span>, x_lab <span class="op">=</span> <span class="st">""</span>,</span>
 <span>                                 title <span class="op">=</span> <span class="st">"Comparing the petal lengths of different species"</span>,</span>
 <span>                                 labcol <span class="op">=</span> <span class="st">"white"</span>, legend_lab <span class="op">=</span> <span class="st">"Petal length category"</span>,</span>
-<span>                                 labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Above mean"</span>, <span class="st">"Below mean"</span><span class="op">)</span></span>
-<span>                                 <span class="op">)</span></span>
+<span>                                 labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Above mean"</span>, <span class="st">"Below mean"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html" class="external-link">plot_grid</a></span><span class="op">(</span><span class="va">minimal_barplot</span>, <span class="va">full_custom_barplot</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-barplotter-examples-1.png" width="100%"></p>

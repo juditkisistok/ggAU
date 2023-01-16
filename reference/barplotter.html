@@ -50,12 +50,12 @@ and calculates the associated Fisher's test p-value on the count data.</p>
 <span>  <span class="va">x_val</span>,</span>
 <span>  <span class="va">y_val</span>,</span>
 <span>  order <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  scale_labs <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  scale_labs <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/waiver.html" class="external-link">waiver</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  pct <span class="op">=</span> <span class="cn">T</span>,</span>
 <span>  style <span class="op">=</span> <span class="st">"light"</span>,</span>
-<span>  colors <span class="op">=</span> <span class="fu"><a href="au_colors.html">au_colors</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  y_lab <span class="op">=</span> <span class="st">"y"</span>,</span>
-<span>  x_lab <span class="op">=</span> <span class="st">"x"</span>,</span>
+<span>  colors <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  y_lab <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/waiver.html" class="external-link">waiver</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  x_lab <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/waiver.html" class="external-link">waiver</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  title <span class="op">=</span> <span class="st">""</span>,</span>
 <span>  labcol <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  legend_lab <span class="op">=</span> <span class="cn">NA</span>,</span>
@@ -78,7 +78,8 @@ and calculates the associated Fisher's test p-value on the count data.</p>
 
 
 <dt>order</dt>
-<dd><p>vector, the order in which the bars should appear. It should include all unique values in <code>x_val</code> in the desired order.</p></dd>
+<dd><p>vector, the order in which the bars should appear. It should include all unique values in <code>x_val</code> in the desired order.
+If unspecified, the bars follow the order of the dataframe.</p></dd>
 
 
 <dt>scale_labs</dt>
@@ -90,32 +91,31 @@ and calculates the associated Fisher's test p-value on the count data.</p>
 
 
 <dt>style</dt>
-<dd><p>string, palette style to be used for <code>scale_fill_au</code>. Default is <code>light</code>.</p></dd>
+<dd><p>string, palette style to be used for <code>scale_fill_au</code>. Default is <code>light</code>. Style is only applied if <code>colors</code> remains <code>NA</code>.</p></dd>
 
 
 <dt>colors</dt>
-<dd><p>vector containing the colors to be used for the <code>fill</code> aesthetic. Default is <code><a href="au_colors.html">au_colors()</a></code>.
-Custom colors are only applied when <code>style = "custom"</code>.</p></dd>
+<dd><p>vector containing the colors to be used for the <code>fill</code> aesthetic. Default is <code>NA</code>. If unspecified, the function uses <code><a href="au_colors.html">au_colors()</a></code>.</p></dd>
 
 
 <dt>y_lab</dt>
-<dd><p>string, the y axis label.</p></dd>
+<dd><p>string, the y axis label. Default is <code>percent</code>. If <code>pct = FALSE</code>, the default is <code>number</code>.</p></dd>
 
 
 <dt>x_lab</dt>
-<dd><p>string, the x axis label.</p></dd>
+<dd><p>string, the x axis label. Default is the string passed into <code>x_val</code>.</p></dd>
 
 
 <dt>title</dt>
-<dd><p>string, the title of the plot to be displayed on top.</p></dd>
+<dd><p>string, the title of the plot to be displayed on top. Deafult is <code>""</code>.</p></dd>
 
 
 <dt>labcol</dt>
-<dd><p>string, the color of the annotation numbers displayed inside the bars. The default is black.</p></dd>
+<dd><p>string, the color of the annotation numbers displayed inside the bars. The default is <code>black</code>.</p></dd>
 
 
 <dt>legend_lab</dt>
-<dd><p>string, the legend title. Default is <code>y</code>.</p></dd>
+<dd><p>string, the legend title. Default is the string passed into <code>y_val</code>.</p></dd>
 
 
 <dt>labels</dt>
