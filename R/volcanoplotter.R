@@ -5,11 +5,11 @@
 #' @param data The `data.frame` to be used for the visualization.
 #' @param x_val string, the name of the column to plot on the x axis.
 #' @param y_val string, the name of the column to plot on the y axis.
-#' @param nonsig_col string, the color to use for the nonsignificant points. Default is `"grey"`.
+#' @param nonsig_col string, the color to use for the nonsignificant points. Default is `grey`.
 #' @param pointsize num, point size passed into `geom_point()`. Default is `1`.
 #' @param point_alpha num, point opacity passed into `geom_point()`. Default is `1`.
-#' @param y_lab string, the y axis label. Default is `"P-value"`.
-#' @param x_lab string, the x axis label. Default is `"logFC"`.
+#' @param y_lab string, the y axis label. Default is `P-value`.
+#' @param x_lab string, the x axis label. Default is `logFC`.
 #' @param title string, the title of the plot to be displayed on top. Default is `""`.
 #' @param sig_neg_col string, color to use for the significant negative points. Default is `au_colors("blue")`.
 #' @param sig_pos_col string, color to use for the significant positive points. Default is `au_colors("red")`.

@@ -10,8 +10,8 @@
 #' @param col_val string, name of the column to use for coloring points. Default is `NA`.
 #' @param style string, palette style to be used for `scale_color_au`. Default is `light`. Style is only applied if `colors` remains `NA`.
 #' @param colors vector containing the colors to be used for the `fill` aesthetic. Default is `NA`. If unspecified, the function uses `au_colors()`.
-#' @param y_lab string, the y axis label. Default is `y`.
-#' @param x_lab string, the x axis label. Default is `x`.
+#' @param y_lab string, the y axis label. Default is the string passed into `y_val`.
+#' @param x_lab string, the x axis label. Default is the sting passed into `x_val`.
 #' @param title string, the title of the plot to be displayed on top. Default is `""`.
 #' @param discrete boolean, `TRUE` applies a discrete color scale, `FALSE` applies a
 #' continuous color scale. Default is `TRUE`.
@@ -41,8 +41,8 @@
 #' labels = c("Species 1", "Species 2", "Species 3"))
 #'
 scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
-                          colors = NA, y_lab = "y", x_lab = "x", title = "",
-                          legend_lab = "", fit = "none", discrete = TRUE,
+                          colors = NA, y_lab = y_val, x_lab = x_val,
+                          title = "", legend_lab = "", fit = "none", discrete = TRUE,
                           linecolor = "black", pointcolor = "black",
                           corr_method = "pearson", alternative = "two.sided",
                           fit_method = "glm", se = FALSE, labels = NA,

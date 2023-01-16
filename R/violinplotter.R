@@ -5,8 +5,8 @@
 #' @param data The `data.frame` to be used for the visualization.
 #' @param x_val string, the name of the column to plot on the x axis.
 #' @param y_val string, the name of the column to plot on the y axis.
-#' @param x_lab string, the x axis label. Default is `x`.
-#' @param y_lab string, the y axis label. Default is `y`.
+#' @param x_lab string, the x axis label. Default is the string passed into `x_val`.
+#' @param y_lab string, the y axis label. Default is the string passed into `y_val`.
 #' @param scale_labs vector, names to display on the x axis ticks. By default, it shows the names as they appear in `x_val`.
 #' @param title string, the title of the plot to be displayed on top. Default is `""`.
 #' @param filter boolean, if `TRUE`, it allows filtering of `data`. Default is `FALSE`.
@@ -31,15 +31,11 @@
 #' violinplotter(data = iris, x_val = "Species", y_val = "Petal.Width",
 #' filter = TRUE, filter_col = "Species", filter_val = c("setosa", "virginica"),
 #' comp_vec = list(c("setosa", "virginica")), title = "Comparing Setosa and Virginica")
-violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "",
+violinplotter = function(data, x_val, y_val, x_lab = x_val, y_lab = y_val, title = "",
                          filter = F, filter_col = NA, filter_val = NA,
-                         comp_vec = NA, col_vec = NA, scale_labs = NA,
+                         comp_vec = NA, col_vec = NA, scale_labs = ggplot2::waiver(),
                          fill_vec = NA, col_style = "light",
                          fill_style = "light", display_n = T, violin_alpha = 0.5) {
-
-  if (is.na(scale_labs[1])) {
-    scale_labs = c(unique(data$x))
-  }
 
   # Default to au_colors if the user doesn't specify a fill vector
   # Otherwise, use the custom colors
