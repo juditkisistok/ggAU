@@ -5,20 +5,20 @@
 #' @param data The `data.frame` to be used for the visualization.
 #' @param x_val string, the name of the column to plot on the x axis.
 #' @param y_val string, the name of the column to plot on the y axis.
-#' @param x_lab string, the x axis label.
-#' @param y_lab string, the y axis label.
-#' @param title string, the title of the plot to be displayed on top.
+#' @param x_lab string, the x axis label. Default is `x`.
+#' @param y_lab string, the y axis label. Default is `y`.
+#' @param scale_labs vector, names to display on the x axis ticks. By default, it shows the names as they appear in `x_val`.
+#' @param title string, the title of the plot to be displayed on top. Default is `""`.
 #' @param filter boolean, if `TRUE`, it allows filtering of `data`. Default is `FALSE`.
-#' @param filter_col string, the name of the column to filter if `filter = TRUE`.
+#' @param filter_col string, the name of the column to filter if `filter = TRUE`. Default is `NA`.
 #' @param filter_val vector, the values to keep if `filter = TRUE`.
 #' @param comp_vec list of vectors containing the comparisons to be passed into `stat_compare_means`.
 #' Default is `NA`, and in this case, no comparisons are made.
-#' @param col_vec vector containing the colors to be used for the `color` aesthetic. Default is `au_colors()`.
-#' Custom colors are only applied when `col_style = "custom"`.
-#' @param fill_vec vector containing the colors to be used for the `fill` aesthetic. Default is `au_colors()`.
-#' #' Custom colors are only applied when `fill_style = "custom"`.
-#' @param col_style string, palette style to be used for `scale_color_au`. Default is `light`.
-#' @param fill_style string, palette style to be used for `scale_fill_au`. Default is `light`.
+#' @param col_vec vector containing the colors to be used for the `color` aesthetic. Default is `NA`. If unspecified, the function uses `au_colors()`.
+#' @param fill_vec vector containing the colors to be used for the `fill` aesthetic. Default is `NA`. If unspecified, the function uses `au_colors()`.
+#' @param col_style string, palette style to be used for `scale_color_au`. Default is `light`. Style is only applied if `col_vec` remains `NA`.
+#' @param fill_style string, palette style to be used for `scale_fill_au`. Default is `light`. Style is only applied if `fill_vec` remains `NA`.
+#' @param violin_alpha num, opacity of the violin plot. Default is `0.5`.
 #' @param display_n boolean, if `TRUE`, the plot displays the sample size appended to the title. Default is `TRUE`.
 #'
 #' @return A ggplot object.
@@ -33,16 +33,35 @@
 #' comp_vec = list(c("setosa", "virginica")), title = "Comparing Setosa and Virginica")
 violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "",
                          filter = F, filter_col = NA, filter_val = NA,
-                         comp_vec = NA, col_vec = au_colors(),
-                         fill_vec = au_colors(), col_style = "light",
-                         fill_style = "light", display_n = T) {
+                         comp_vec = NA, col_vec = NA, scale_labs = NA,
+                         fill_vec = NA, col_style = "light",
+                         fill_style = "light", display_n = T, violin_alpha = 0.5) {
+
+  if (is.na(scale_labs[1])) {
+    scale_labs = c(unique(data$x))
+  }
+
+  # Default to a_colors if the user doesn't specify a fill vector
+  # Otherwise, use the custom colors
+  if (is.na(fill_vec[1])) {
+    fill_vec = au_colors()
+  } else {
+    fill_style = "custom"
+  }
+
+  if (is.na(col_vec[1])) {
+    col_vec = au_colors()
+  } else {
+    col_style = "custom"
+  }
+
   if (filter == T) {
     data = dplyr::filter(data, get(filter_col) %in% filter_val)
   }
 
   p = ggplot2::ggplot(data, ggplot2::aes(x = get(x_val), y = get(y_val))) +
     ggforce::geom_sina(ggplot2::aes(color = get(x_val)))+
-    ggplot2::geom_violin(ggplot2::aes(fill = get(x_val)), alpha = 0.5) +
+    ggplot2::geom_violin(ggplot2::aes(fill = get(x_val)), alpha = violin_alpha) +
     ggplot2::geom_boxplot(width = 0.1, outlier.shape = NA) +
     ggpubr::theme_pubr() +
     ggplot2::xlab(x_lab) +
@@ -50,7 +69,8 @@ violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "
     ggplot2::theme(legend.position = 'none',
           plot.title = ggplot2::element_text(hjust = 0.5)) +
     scale_color_au(colors = col_vec, style = col_style, discrete = TRUE) +
-    scale_fill_au(colors = fill_vec, style = fill_style, discrete = TRUE)
+    scale_fill_au(colors = fill_vec, style = fill_style, discrete = TRUE) +
+    ggplot2::scale_x_discrete(labels = scale_labs)
 
   if (display_n) {
     # counts the number of data points for annotation purposes
@@ -73,4 +93,3 @@ violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "
 
   return (p)
 }
-

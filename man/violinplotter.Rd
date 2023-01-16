@@ -15,11 +15,13 @@ violinplotter(
   filter_col = NA,
   filter_val = NA,
   comp_vec = NA,
-  col_vec = au_colors(),
-  fill_vec = au_colors(),
+  col_vec = NA,
+  scale_labs = NA,
+  fill_vec = NA,
   col_style = "light",
   fill_style = "light",
-  display_n = T
+  display_n = T,
+  violin_alpha = 0.5
 )
 }
 \arguments{
@@ -29,32 +31,34 @@ violinplotter(
 
 \item{y_val}{string, the name of the column to plot on the y axis.}
 
-\item{x_lab}{string, the x axis label.}
+\item{x_lab}{string, the x axis label. Default is \code{x}.}
 
-\item{y_lab}{string, the y axis label.}
+\item{y_lab}{string, the y axis label. Default is \code{y}.}
 
-\item{title}{string, the title of the plot to be displayed on top.}
+\item{title}{string, the title of the plot to be displayed on top. Default is \code{""}.}
 
 \item{filter}{boolean, if \code{TRUE}, it allows filtering of \code{data}. Default is \code{FALSE}.}
 
-\item{filter_col}{string, the name of the column to filter if \code{filter = TRUE}.}
+\item{filter_col}{string, the name of the column to filter if \code{filter = TRUE}. Default is \code{NA}.}
 
 \item{filter_val}{vector, the values to keep if \code{filter = TRUE}.}
 
 \item{comp_vec}{list of vectors containing the comparisons to be passed into \code{stat_compare_means}.
 Default is \code{NA}, and in this case, no comparisons are made.}
 
-\item{col_vec}{vector containing the colors to be used for the \code{color} aesthetic. Default is \code{au_colors()}.
-Custom colors are only applied when \code{col_style = "custom"}.}
+\item{col_vec}{vector containing the colors to be used for the \code{color} aesthetic. Default is \code{NA}. If unspecified, the function uses \code{au_colors()}.}
 
-\item{fill_vec}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{au_colors()}.
-#' Custom colors are only applied when \code{fill_style = "custom"}.}
+\item{scale_labs}{vector, names to display on the x axis ticks. By default, it shows the names as they appear in \code{x_val}.}
 
-\item{col_style}{string, palette style to be used for \code{scale_color_au}. Default is \code{light}.}
+\item{fill_vec}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{NA}. If unspecified, the function uses \code{au_colors()}.}
 
-\item{fill_style}{string, palette style to be used for \code{scale_fill_au}. Default is \code{light}.}
+\item{col_style}{string, palette style to be used for \code{scale_color_au}. Default is \code{light}. Style is only applied if \code{col_vec} remains \code{NA}.}
+
+\item{fill_style}{string, palette style to be used for \code{scale_fill_au}. Default is \code{light}. Style is only applied if \code{fill_vec} remains \code{NA}.}
 
 \item{display_n}{boolean, if \code{TRUE}, the plot displays the sample size appended to the title. Default is \code{TRUE}.}
+
+\item{violin_alpha}{num, opacity of the violin plot. Default is \code{0.5}.}
 }
 \value{
 A ggplot object.
