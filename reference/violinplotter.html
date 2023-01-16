@@ -46,15 +46,15 @@
 <span>  <span class="va">data</span>,</span>
 <span>  <span class="va">x_val</span>,</span>
 <span>  <span class="va">y_val</span>,</span>
-<span>  x_lab <span class="op">=</span> <span class="st">"x"</span>,</span>
-<span>  y_lab <span class="op">=</span> <span class="st">"y"</span>,</span>
+<span>  x_lab <span class="op">=</span> <span class="va">x_val</span>,</span>
+<span>  y_lab <span class="op">=</span> <span class="va">y_val</span>,</span>
 <span>  title <span class="op">=</span> <span class="st">""</span>,</span>
 <span>  filter <span class="op">=</span> <span class="cn">F</span>,</span>
 <span>  filter_col <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  filter_val <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  comp_vec <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  col_vec <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  scale_labs <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  scale_labs <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/waiver.html" class="external-link">waiver</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  fill_vec <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  col_style <span class="op">=</span> <span class="st">"light"</span>,</span>
 <span>  fill_style <span class="op">=</span> <span class="st">"light"</span>,</span>
@@ -78,11 +78,11 @@
 
 
 <dt>x_lab</dt>
-<dd><p>string, the x axis label. Default is <code>x</code>.</p></dd>
+<dd><p>string, the x axis label. Default is the string passed into <code>x_val</code>.</p></dd>
 
 
 <dt>y_lab</dt>
-<dd><p>string, the y axis label. Default is <code>y</code>.</p></dd>
+<dd><p>string, the y axis label. Default is the string passed into <code>y_val</code>.</p></dd>
 
 
 <dt>title</dt>
