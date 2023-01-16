@@ -8,28 +8,27 @@
 #' @param x_val string, the name of the column to plot on the x axis.
 #' @param y_val string, the name of the column to plot on the y axis.
 #' @param col_val string, name of the column to use for coloring points. Default is `NA`.
-#' @param style string, palette style to be used for `scale_color_au`. Default is `"light"`.
-#' @param colors vector containing the colors to be used for the `fill` aesthetic. Default is `au_colors()`.
-#' Custom colors are only applied when `style = "custom"`.
-#' @param y_lab string, the y axis label. Default is `"y"`.
-#' @param x_lab string, the x axis label. Default is `"x"`.
+#' @param style string, palette style to be used for `scale_color_au`. Default is `light`. Style is only applied if `colors` remains `NA`.
+#' @param colors vector containing the colors to be used for the `fill` aesthetic. Default is `NA`. If unspecified, the function uses `au_colors()`.
+#' @param y_lab string, the y axis label. Default is `y`.
+#' @param x_lab string, the x axis label. Default is `x`.
 #' @param title string, the title of the plot to be displayed on top. Default is `""`.
 #' @param discrete boolean, `TRUE` applies a discrete color scale, `FALSE` applies a
 #' continuous color scale. Default is `TRUE`.
-#' @param pointcolor sting, the color to use for points when `col_val = NA`.Default is `"black"`.
+#' @param pointcolor sting, the color to use for points when `col_val = NA`.Default is `black`.
 #' @param pointsize num, point size passed into `geom_point()`. Default is `1`.
 #' @param point_alpha num, point opacity passed into `geom_point()`. Default is `1`.
-#' @param corr_method string, the correlation method to pass into `stat_cor()`. Default is `"pearson"`.
-#' @param alternative string, the alternative to pass into `stat_cor()`. Default is `"two.sided"`.
-#' @param fit string, `"single"`, `"grouped"`, or `"none"`. When using `"single"`, the model is fit to the entire dataset
-#' displayed on the plot. When `"grouped"` is used, a separate line is fit to the groups defined by `col_val`.
-#' When `none` is selected, no line is being fit. Default is `"none"`.
-#' @param fit_method string, the fitting method passed into `geom_smooth()`. Default is `"glm"`.
+#' @param corr_method string, the correlation method to pass into `stat_cor()`. Default is `pearson`.
+#' @param alternative string, the alternative to pass into `stat_cor()`. Default is `two.sided`.
+#' @param fit string, `single`, `grouped`, or `none`. When using `single`, the model is fit to the entire dataset
+#' displayed on the plot. When `grouped` is used, a separate line is fit to the groups defined by `col_val`.
+#' When `none` is selected, no line is being fit. Default is `none`.
+#' @param fit_method string, the fitting method passed into `geom_smooth()`. Default is `glm`.
 #' @param se boolean, when `TRUE`, the confidence interval around the fitted line is displayed. Default is `FALSE`.
-#' @param linecolor string, the color of the fitted line in `single` mode. Default is `"black"`.
-#' @param formula string, the formula to use for fitting the line with `geom_smooth()`. Default is `"y ~ x"`.
+#' @param linecolor string, the color of the fitted line in `single` mode. Default is `black`.
+#' @param formula string, the formula to use for fitting the line with `geom_smooth()`. Default is `y ~ x`.
 #' @param labels vector, the legend annotations. Default is the unique values in `y_val`.
-#' @param legend_lab string, the legend title. Default is `"color"`.
+#' @param legend_lab string, the legend title. Default is `color`.
 #' @param ... other parameters passed into `stat_cor()`.
 #'
 #' @return A ggplot object.
@@ -42,12 +41,20 @@
 #' labels = c("Species 1", "Species 2", "Species 3"))
 #'
 scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
-                          colors = au_colors(), y_lab = "y",
-                          x_lab = "x", title = "", legend_lab = "", fit = "none",
-                          discrete = TRUE, linecolor = "black", pointcolor = "black",
+                          colors = NA, y_lab = "y", x_lab = "x", title = "",
+                          legend_lab = "", fit = "none", discrete = TRUE,
+                          linecolor = "black", pointcolor = "black",
                           corr_method = "pearson", alternative = "two.sided",
                           fit_method = "glm", se = FALSE, labels = NA,
                           formula = "y ~ x", pointsize = 1, point_alpha = 1, ...) {
+
+  # Default to au_colors if the user doesn't specify a color vector
+  # Otherwise, use the custom colors
+  if (is.na(colors[1])) {
+    colors = au_colors()
+  } else {
+    style = "custom"
+  }
 
   if (fit == "single") {
 

@@ -7,16 +7,16 @@
 #' @param x_val string, the name of the column to plot on the x axis.
 #' @param y_val string, the name of the column to plot on the y axis.
 #' @param order vector, the order in which the bars should appear. It should include all unique values in `x_val` in the desired order.
+#' If unspecified, the bars follow the order of the dataframe.
 #' @param scale_labs vector, names to display on the x axis ticks. By default, it shows the names as they appear in `x_val`.
 #' @param pct boolean, if `TRUE`, percentages are displayed on the bars, if `FALSE`, the absolute numbers are shown.
-#' @param style string, palette style to be used for `scale_fill_au`. Default is `light`.
-#' @param colors vector containing the colors to be used for the `fill` aesthetic. Default is `au_colors()`.
-#' Custom colors are only applied when `style = "custom"`.
-#' @param y_lab string, the y axis label.
-#' @param x_lab string, the x axis label.
-#' @param title string, the title of the plot to be displayed on top.
-#' @param labcol string, the color of the annotation numbers displayed inside the bars. The default is black.
-#' @param legend_lab string, the legend title. Default is `y`.
+#' @param style string, palette style to be used for `scale_fill_au`. Default is `light`. Style is only applied if `colors` remains `NA`.
+#' @param colors vector containing the colors to be used for the `fill` aesthetic. Default is `NA`. If unspecified, the function uses `au_colors()`.
+#' @param y_lab string, the y axis label. Default is `percent`. If `pct = FALSE`, the default is `number`.
+#' @param x_lab string, the x axis label. Default is the string passed into `x_val`.
+#' @param title string, the title of the plot to be displayed on top. Deafult is `""`.
+#' @param labcol string, the color of the annotation numbers displayed inside the bars. The default is `black`.
+#' @param legend_lab string, the legend title. Default is the string passed into `y_val`.
 #' @param labels vector, the legend annotations. Default is the unique values in `y_val`.
 #'
 #' @return A ggplot object.
@@ -28,9 +28,9 @@
 #'
 #' barplotter(data = iris, x_val = "Species", y_val = "Petal_mean", labcol = "white")
 #'
-barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
-                      pct = T, style = "light", colors = au_colors(), y_lab = "y",
-                      x_lab = "x", title = "", labcol = "black",
+barplotter = function(data, x_val, y_val, order = NA, scale_labs = ggplot2::waiver(),
+                      pct = T, style = "light", colors = NA, y_lab = ggplot2::waiver(),
+                      x_lab = ggplot2::waiver(), title = "", labcol = "black",
                       legend_lab = NA, labels = NA) {
   data = data %>%
     dplyr::select(!!x_val, !!y_val) %>%
@@ -38,27 +38,32 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = NA,
     dplyr::count() %>%
     dplyr::group_by(`get(x_val)`) %>%
     dplyr::mutate(x = signif(n / sum(n) * 100, digits = 3)) %>%
-    purrr::set_names(c('x', 'y', 'number', 'percent'))
+    purrr::set_names(c(x_val, y_val, 'number', 'percent'))
 
   fishers_df = data %>%
-    tidyr::pivot_wider(values_from = number, names_from = y, id_cols = x, values_fill = 0) %>%
-    tibble::column_to_rownames('x')
+    tidyr::pivot_wider(values_from = number, names_from = y_val,
+                       id_cols = x_val, values_fill = 0) %>%
+    tibble::column_to_rownames(x_val)
 
-  if (is.na(order[1])) {
-    order = c(unique(data$x))
+  # Default to au_colors if the user doesn't specify a color vector
+  # Otherwise, use the custom colors
+  if (is.na(colors[1])) {
+    colors = au_colors()
+  } else {
+    style = "custom"
   }
 
-  if (is.na(scale_labs[1])) {
-    scale_labs = c(unique(data$x))
+  if (is.na(order[1])) {
+    order = c(unique(dplyr::pull(data, get(x_val))))
   }
 
   stat_title = paste0("Fisher's exact test p = ", signif(stats::fisher.test(fishers_df)$p, digits = 3))
 
   if (pct) {
-    p = ggpubr::ggbarplot(data, "x", "percent", lab.pos = "in", fill = "y",
+    p = ggpubr::ggbarplot(data, x_val, "percent", lab.pos = "in", fill = y_val,
                           label = TRUE, order = order, lab.col = labcol)
   } else {
-    p = ggpubr::ggbarplot(data, "x", "number", lab.pos = "in", fill = "y",
+    p = ggpubr::ggbarplot(data, x_val, "number", lab.pos = "in", fill = y_val,
                           label = TRUE, order = order, lab.col = labcol)
   }
 

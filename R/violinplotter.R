@@ -41,7 +41,7 @@ violinplotter = function(data, x_val, y_val, x_lab = "x", y_lab = "y", title = "
     scale_labs = c(unique(data$x))
   }
 
-  # Default to a_colors if the user doesn't specify a fill vector
+  # Default to au_colors if the user doesn't specify a fill vector
   # Otherwise, use the custom colors
   if (is.na(fill_vec[1])) {
     fill_vec = au_colors()

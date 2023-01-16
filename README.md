@@ -198,6 +198,7 @@ full_custom = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Widt
                             col_vec = c("red", "blue", "green"), 
                             fill_vec = c("red", "blue", "green"),
                             display_n = F)
+#> [1] FALSE
 
 cowplot::plot_grid(minimal, minimal_filtered, full_custom, nrow = 1)
 ```
@@ -226,8 +227,7 @@ full_custom_barplot = barplotter(data = iris, x_val = "Species", y_val = "Petal_
                                  y_lab = "Number of individuals", x_lab = "",
                                  title = "Comparing the petal lengths of different species",
                                  labcol = "white", legend_lab = "Petal length category",
-                                 labels = c("Above mean", "Below mean")
-                                 )
+                                 labels = c("Above mean", "Below mean"))
 
 cowplot::plot_grid(minimal_barplot, full_custom_barplot)
 ```

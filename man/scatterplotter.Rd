@@ -10,7 +10,7 @@ scatterplotter(
   y_val,
   col_val = NA,
   style = "light",
-  colors = au_colors(),
+  colors = NA,
   y_lab = "y",
   x_lab = "x",
   title = "",
@@ -39,41 +39,40 @@ scatterplotter(
 
 \item{col_val}{string, name of the column to use for coloring points. Default is \code{NA}.}
 
-\item{style}{string, palette style to be used for \code{scale_color_au}. Default is \code{"light"}.}
+\item{style}{string, palette style to be used for \code{scale_color_au}. Default is \code{light}. Style is only applied if \code{colors} remains \code{NA}.}
 
-\item{colors}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{au_colors()}.
-Custom colors are only applied when \code{style = "custom"}.}
+\item{colors}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{NA}. If unspecified, the function uses \code{au_colors()}.}
 
-\item{y_lab}{string, the y axis label. Default is \code{"y"}.}
+\item{y_lab}{string, the y axis label. Default is \code{y}.}
 
-\item{x_lab}{string, the x axis label. Default is \code{"x"}.}
+\item{x_lab}{string, the x axis label. Default is \code{x}.}
 
 \item{title}{string, the title of the plot to be displayed on top. Default is \code{""}.}
 
-\item{legend_lab}{string, the legend title. Default is \code{"color"}.}
+\item{legend_lab}{string, the legend title. Default is \code{color}.}
 
-\item{fit}{string, \code{"single"}, \code{"grouped"}, or \code{"none"}. When using \code{"single"}, the model is fit to the entire dataset
-displayed on the plot. When \code{"grouped"} is used, a separate line is fit to the groups defined by \code{col_val}.
-When \code{none} is selected, no line is being fit. Default is \code{"none"}.}
+\item{fit}{string, \code{single}, \code{grouped}, or \code{none}. When using \code{single}, the model is fit to the entire dataset
+displayed on the plot. When \code{grouped} is used, a separate line is fit to the groups defined by \code{col_val}.
+When \code{none} is selected, no line is being fit. Default is \code{none}.}
 
 \item{discrete}{boolean, \code{TRUE} applies a discrete color scale, \code{FALSE} applies a
 continuous color scale. Default is \code{TRUE}.}
 
-\item{linecolor}{string, the color of the fitted line in \code{single} mode. Default is \code{"black"}.}
+\item{linecolor}{string, the color of the fitted line in \code{single} mode. Default is \code{black}.}
 
-\item{pointcolor}{sting, the color to use for points when \code{col_val = NA}.Default is \code{"black"}.}
+\item{pointcolor}{sting, the color to use for points when \code{col_val = NA}.Default is \code{black}.}
 
-\item{corr_method}{string, the correlation method to pass into \code{stat_cor()}. Default is \code{"pearson"}.}
+\item{corr_method}{string, the correlation method to pass into \code{stat_cor()}. Default is \code{pearson}.}
 
-\item{alternative}{string, the alternative to pass into \code{stat_cor()}. Default is \code{"two.sided"}.}
+\item{alternative}{string, the alternative to pass into \code{stat_cor()}. Default is \code{two.sided}.}
 
-\item{fit_method}{string, the fitting method passed into \code{geom_smooth()}. Default is \code{"glm"}.}
+\item{fit_method}{string, the fitting method passed into \code{geom_smooth()}. Default is \code{glm}.}
 
 \item{se}{boolean, when \code{TRUE}, the confidence interval around the fitted line is displayed. Default is \code{FALSE}.}
 
 \item{labels}{vector, the legend annotations. Default is the unique values in \code{y_val}.}
 
-\item{formula}{string, the formula to use for fitting the line with \code{geom_smooth()}. Default is \code{"y ~ x"}.}
+\item{formula}{string, the formula to use for fitting the line with \code{geom_smooth()}. Default is \code{y ~ x}.}
 
 \item{pointsize}{num, point size passed into \code{geom_point()}. Default is \code{1}.}
 
