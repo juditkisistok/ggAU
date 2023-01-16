@@ -40,15 +40,15 @@ volcanoplotter(
 
 \item{y_val}{string, the name of the column to plot on the y axis.}
 
-\item{nonsig_col}{string, the color to use for the nonsignificant points. Default is \code{"grey"}.}
+\item{nonsig_col}{string, the color to use for the nonsignificant points. Default is \code{grey}.}
 
 \item{pointsize}{num, point size passed into \code{geom_point()}. Default is \code{1}.}
 
 \item{point_alpha}{num, point opacity passed into \code{geom_point()}. Default is \code{1}.}
 
-\item{y_lab}{string, the y axis label. Default is \code{"P-value"}.}
+\item{y_lab}{string, the y axis label. Default is \code{P-value}.}
 
-\item{x_lab}{string, the x axis label. Default is \code{"logFC"}.}
+\item{x_lab}{string, the x axis label. Default is \code{logFC}.}
 
 \item{title}{string, the title of the plot to be displayed on top. Default is \code{""}.}
 

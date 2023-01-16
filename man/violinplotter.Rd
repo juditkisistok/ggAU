@@ -8,15 +8,15 @@ violinplotter(
   data,
   x_val,
   y_val,
-  x_lab = "x",
-  y_lab = "y",
+  x_lab = x_val,
+  y_lab = y_val,
   title = "",
   filter = F,
   filter_col = NA,
   filter_val = NA,
   comp_vec = NA,
   col_vec = NA,
-  scale_labs = NA,
+  scale_labs = ggplot2::waiver(),
   fill_vec = NA,
   col_style = "light",
   fill_style = "light",
@@ -31,9 +31,9 @@ violinplotter(
 
 \item{y_val}{string, the name of the column to plot on the y axis.}
 
-\item{x_lab}{string, the x axis label. Default is \code{x}.}
+\item{x_lab}{string, the x axis label. Default is the string passed into \code{x_val}.}
 
-\item{y_lab}{string, the y axis label. Default is \code{y}.}
+\item{y_lab}{string, the y axis label. Default is the string passed into \code{y_val}.}
 
 \item{title}{string, the title of the plot to be displayed on top. Default is \code{""}.}
 

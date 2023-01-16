@@ -11,8 +11,8 @@ scatterplotter(
   col_val = NA,
   style = "light",
   colors = NA,
-  y_lab = "y",
-  x_lab = "x",
+  y_lab = y_val,
+  x_lab = x_val,
   title = "",
   legend_lab = "",
   fit = "none",
@@ -43,9 +43,9 @@ scatterplotter(
 
 \item{colors}{vector containing the colors to be used for the \code{fill} aesthetic. Default is \code{NA}. If unspecified, the function uses \code{au_colors()}.}
 
-\item{y_lab}{string, the y axis label. Default is \code{y}.}
+\item{y_lab}{string, the y axis label. Default is the string passed into \code{y_val}.}
 
-\item{x_lab}{string, the x axis label. Default is \code{x}.}
+\item{x_lab}{string, the x axis label. Default is the sting passed into \code{x_val}.}
 
 \item{title}{string, the title of the plot to be displayed on top. Default is \code{""}.}
 
