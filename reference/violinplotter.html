@@ -53,11 +53,13 @@
 <span>  filter_col <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  filter_val <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  comp_vec <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  col_vec <span class="op">=</span> <span class="fu"><a href="au_colors.html">au_colors</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  fill_vec <span class="op">=</span> <span class="fu"><a href="au_colors.html">au_colors</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  col_vec <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  scale_labs <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  fill_vec <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  col_style <span class="op">=</span> <span class="st">"light"</span>,</span>
 <span>  fill_style <span class="op">=</span> <span class="st">"light"</span>,</span>
-<span>  display_n <span class="op">=</span> <span class="cn">T</span></span>
+<span>  display_n <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  violin_alpha <span class="op">=</span> <span class="fl">0.5</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -76,15 +78,15 @@
 
 
 <dt>x_lab</dt>
-<dd><p>string, the x axis label.</p></dd>
+<dd><p>string, the x axis label. Default is <code>x</code>.</p></dd>
 
 
 <dt>y_lab</dt>
-<dd><p>string, the y axis label.</p></dd>
+<dd><p>string, the y axis label. Default is <code>y</code>.</p></dd>
 
 
 <dt>title</dt>
-<dd><p>string, the title of the plot to be displayed on top.</p></dd>
+<dd><p>string, the title of the plot to be displayed on top. Default is <code>""</code>.</p></dd>
 
 
 <dt>filter</dt>
@@ -92,7 +94,7 @@
 
 
 <dt>filter_col</dt>
-<dd><p>string, the name of the column to filter if <code>filter = TRUE</code>.</p></dd>
+<dd><p>string, the name of the column to filter if <code>filter = TRUE</code>. Default is <code>NA</code>.</p></dd>
 
 
 <dt>filter_val</dt>
@@ -105,25 +107,31 @@ Default is <code>NA</code>, and in this case, no comparisons are made.</p></dd>
 
 
 <dt>col_vec</dt>
-<dd><p>vector containing the colors to be used for the <code>color</code> aesthetic. Default is <code><a href="au_colors.html">au_colors()</a></code>.
-Custom colors are only applied when <code>col_style = "custom"</code>.</p></dd>
+<dd><p>vector containing the colors to be used for the <code>color</code> aesthetic. Default is <code>NA</code>. If unspecified, the function uses <code><a href="au_colors.html">au_colors()</a></code>.</p></dd>
+
+
+<dt>scale_labs</dt>
+<dd><p>vector, names to display on the x axis ticks. By default, it shows the names as they appear in <code>x_val</code>.</p></dd>
 
 
 <dt>fill_vec</dt>
-<dd><p>vector containing the colors to be used for the <code>fill</code> aesthetic. Default is <code><a href="au_colors.html">au_colors()</a></code>.
-#' Custom colors are only applied when <code>fill_style = "custom"</code>.</p></dd>
+<dd><p>vector containing the colors to be used for the <code>fill</code> aesthetic. Default is <code>NA</code>. If unspecified, the function uses <code><a href="au_colors.html">au_colors()</a></code>.</p></dd>
 
 
 <dt>col_style</dt>
-<dd><p>string, palette style to be used for <code>scale_color_au</code>. Default is <code>light</code>.</p></dd>
+<dd><p>string, palette style to be used for <code>scale_color_au</code>. Default is <code>light</code>. Style is only applied if <code>col_vec</code> remains <code>NA</code>.</p></dd>
 
 
 <dt>fill_style</dt>
-<dd><p>string, palette style to be used for <code>scale_fill_au</code>. Default is <code>light</code>.</p></dd>
+<dd><p>string, palette style to be used for <code>scale_fill_au</code>. Default is <code>light</code>. Style is only applied if <code>fill_vec</code> remains <code>NA</code>.</p></dd>
 
 
 <dt>display_n</dt>
 <dd><p>boolean, if <code>TRUE</code>, the plot displays the sample size appended to the title. Default is <code>TRUE</code>.</p></dd>
+
+
+<dt>violin_alpha</dt>
+<dd><p>num, opacity of the violin plot. Default is <code>0.5</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
