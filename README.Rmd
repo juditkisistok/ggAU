@@ -44,7 +44,7 @@ unikn::seecol(au_color_palette(style = "hotandcold"), main = "Hot and cold",
 unikn::seecol(au_color_palette(style = "hotandcold_dark"), main = "Hot and cold (dark)", 
               grid = F, rgb = F)
 unikn::seecol(au_color_palette(style = "tracerx"), main = "TRACERx", 
-              grid = F, rgb = F)
+              grid = F, rgb = F) 
 ```
 
 # Examples

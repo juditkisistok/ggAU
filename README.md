@@ -59,7 +59,7 @@ unikn::seecol(au_color_palette(style = "hotandcold_dark"), main = "Hot and cold 
 
 ``` r
 unikn::seecol(au_color_palette(style = "tracerx"), main = "TRACERx", 
-              grid = F, rgb = F)
+              grid = F, rgb = F) 
 ```
 
 <img src="man/figures/README-palettes-5.png" width="100%" />
@@ -198,7 +198,6 @@ full_custom = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Widt
                             col_vec = c("red", "blue", "green"), 
                             fill_vec = c("red", "blue", "green"),
                             display_n = F)
-#> [1] FALSE
 
 cowplot::plot_grid(minimal, minimal_filtered, full_custom, nrow = 1)
 ```
