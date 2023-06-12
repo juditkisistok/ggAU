@@ -16,6 +16,7 @@
 #' @param x_lab string, the x axis label. Default is the string passed into `x_val`.
 #' @param title string, the title of the plot to be displayed on top. Deafult is `""`.
 #' @param labcol string, the color of the annotation numbers displayed inside the bars. The default is `black`.
+#' @param display_n boolean, if `TRUE`, the plot displays the sample size appended to the title. Default is `TRUE`.
 #' @param legend_lab string, the legend title. Default is the string passed into `y_val`.
 #' @param labels vector, the legend annotations. Default is the unique values in `y_val`.
 #'
@@ -27,10 +28,10 @@
 #'"above_mean", "below_mean"))
 #'
 #' barplotter(data = iris, x_val = "Species", y_val = "Petal_mean", labcol = "white")
-#'
+
 barplotter = function(data, x_val, y_val, order = NA, scale_labs = ggplot2::waiver(),
                       pct = T, style = "light", colors = NA, y_lab = ggplot2::waiver(),
-                      x_lab = ggplot2::waiver(), title = "", labcol = "black",
+                      x_lab = ggplot2::waiver(), title = "", labcol = "black", display_n = T,
                       legend_lab = NA, labels = NA) {
   data = data %>%
     dplyr::select(!!x_val, !!y_val) %>%
@@ -58,6 +59,10 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = ggplot2::waiv
   }
 
   stat_title = paste0("Fisher's exact test p = ", signif(stats::fisher.test(fishers_df)$p, digits = 3))
+
+  if (display_n) {
+    title = paste0(title, ", n = ", sum(data$number))
+  }
 
   if (pct) {
     p = ggpubr::ggbarplot(data, x_val, "percent", lab.pos = "in", fill = y_val,

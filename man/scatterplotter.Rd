@@ -27,6 +27,7 @@ scatterplotter(
   formula = "y ~ x",
   pointsize = 1,
   point_alpha = 1,
+  display_n = T,
   ...
 )
 }
@@ -77,6 +78,8 @@ continuous color scale. Default is \code{TRUE}.}
 \item{pointsize}{num, point size passed into \code{geom_point()}. Default is \code{1}.}
 
 \item{point_alpha}{num, point opacity passed into \code{geom_point()}. Default is \code{1}.}
+
+\item{display_n}{boolean, if \code{TRUE}, the plot displays the sample size appended to the title. Default is \code{TRUE}. The sample size is calculated on the basis of the number of rows in the data frame, so ensure that the observations in \code{data} are unique before calling \code{scatterplotter}.}
 
 \item{...}{other parameters passed into \code{stat_cor()}.}
 }

@@ -29,6 +29,7 @@
 #' @param formula string, the formula to use for fitting the line with `geom_smooth()`. Default is `y ~ x`.
 #' @param labels vector, the legend annotations. Default is the unique values in `y_val`.
 #' @param legend_lab string, the legend title. Default is `color`.
+#' @param display_n boolean, if `TRUE`, the plot displays the sample size appended to the title. Default is `TRUE`. The sample size is calculated on the basis of the number of rows in the data frame, so ensure that the observations in `data` are unique before calling `scatterplotter`.
 #' @param ... other parameters passed into `stat_cor()`.
 #'
 #' @return A ggplot object.
@@ -46,7 +47,8 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
                           linecolor = "black", pointcolor = "black",
                           corr_method = "pearson", alternative = "two.sided",
                           fit_method = "glm", se = FALSE, labels = NA,
-                          formula = "y ~ x", pointsize = 1, point_alpha = 1, ...) {
+                          formula = "y ~ x", pointsize = 1, point_alpha = 1,
+                          display_n = T, ...) {
 
   # Default to au_colors if the user doesn't specify a color vector
   # Otherwise, use the custom colors
@@ -106,6 +108,10 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
   if (corr_method != "none")  {
     p = p +
       ggpubr::stat_cor(method = corr_method, alternative = alternative, ...)
+  }
+
+  if (display_n) {
+    title = paste0(title, ", n = ", nrow(data))
   }
 
   p = p +

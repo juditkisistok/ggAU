@@ -17,6 +17,7 @@ barplotter(
   x_lab = ggplot2::waiver(),
   title = "",
   labcol = "black",
+  display_n = T,
   legend_lab = NA,
   labels = NA
 )
@@ -47,6 +48,8 @@ If unspecified, the bars follow the order of the dataframe.}
 
 \item{labcol}{string, the color of the annotation numbers displayed inside the bars. The default is \code{black}.}
 
+\item{display_n}{boolean, if \code{TRUE}, the plot displays the sample size appended to the title. Default is \code{TRUE}.}
+
 \item{legend_lab}{string, the legend title. Default is the string passed into \code{y_val}.}
 
 \item{labels}{vector, the legend annotations. Default is the unique values in \code{y_val}.}
@@ -63,5 +66,4 @@ iris = dplyr::mutate(iris, Petal_mean = ifelse(Petal.Length > mean(Petal.Length)
 "above_mean", "below_mean"))
 
 barplotter(data = iris, x_val = "Species", y_val = "Petal_mean", labcol = "white")
-
 }

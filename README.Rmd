@@ -185,7 +185,7 @@ full_custom_barplot = barplotter(data = iris, x_val = "Species", y_val = "Petal_
                                  scale_labs = c("Virginica", "Setosa", "Versicolor"),
                                  pct = FALSE, style = "custom", colors = c("darkblue", "magenta"),
                                  y_lab = "Number of individuals", x_lab = "",
-                                 title = "Comparing the petal lengths of different species",
+                                 title = "Comparing the petal lengths of different\nspecies",
                                  labcol = "white", legend_lab = "Petal length category",
                                  labels = c("Above mean", "Below mean"))
 
@@ -206,7 +206,7 @@ full_custom_scatterplot = scatterplotter(iris, "Sepal.Width", "Sepal.Length",
                                          col_val = "Species", style = "custom",
                                          colors = c("trxred", "trxblue", "trxyellow"),
                                          y_lab = "Sepal Length", x_lab = "Sepal Width", 
-                                         title = "Comparing sepal widths and lengths per species", 
+                                         title = "Comparing sepal widths and lengths per\nspecies", 
                                          fit = "grouped", corr_method = "pearson", 
                                          alternative = "two.sided", fit_method = "lm",
                                          se = FALSE, formula = "y ~ x",
