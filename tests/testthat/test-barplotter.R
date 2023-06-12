@@ -71,3 +71,15 @@ test_that("legend key labeling works", {
 
   expect_equal(g$plot$scales$scales[[2]]$labels, c("one", "two"))
 })
+
+test_that("filtering works", {
+  iris_filtered = iris %>%
+    dplyr::filter(Species %in% c("setosa", "virginica"))
+
+  p  = barplotter(data = iris, x_val =  "Species", y_val = "Petal_mean",
+                  filter_col = "Species", filter_val = c("setosa", "virginica"))
+
+  q  = barplotter(data = iris_filtered, x_val =  "Species", y_val = "Petal_mean")
+
+  expect_equal(p, q)
+})

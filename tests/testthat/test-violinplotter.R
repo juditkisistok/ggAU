@@ -73,3 +73,12 @@ test_that("comparisons work", {
 
   expect_true("ggsignif" %in% constructor_str)
 })
+
+test_that("faceting works", {
+  p = violinplotter(data = iris, x_val =  "Species", y_val = "Petal.Width",
+                    facet_val = "Species")
+
+  q = ggplot2::ggplot_build(p)
+
+  expect_true("FacetWrap" %in% class(q[["plot"]][["facet"]]))
+})

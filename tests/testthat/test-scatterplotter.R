@@ -64,3 +64,11 @@ test_that("legend key labeling works", {
   expect_equal(g$plot$scales$scales[[1]]$labels, c("one", "two", "three"))
 })
 
+test_that("faceting works", {
+  p  = scatterplotter(data = iris, x_val = "Petal.Width", y_val = "Petal.Length",
+                      facet_val = "Species")
+
+  q = ggplot2::ggplot_build(p)
+
+  expect_true("FacetWrap" %in% class(q[["plot"]][["facet"]]))
+})
