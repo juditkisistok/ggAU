@@ -71,6 +71,7 @@ and fit a linear or loess line to the data.</p>
 <span>  formula <span class="op">=</span> <span class="st">"y ~ x"</span>,</span>
 <span>  pointsize <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  point_alpha <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  display_n <span class="op">=</span> <span class="cn">T</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -166,6 +167,10 @@ continuous color scale. Default is <code>TRUE</code>.</p></dd>
 
 <dt>point_alpha</dt>
 <dd><p>num, point opacity passed into <code>geom_point()</code>. Default is <code>1</code>.</p></dd>
+
+
+<dt>display_n</dt>
+<dd><p>boolean, if <code>TRUE</code>, the plot displays the sample size appended to the title. Default is <code>TRUE</code>. The sample size is calculated on the basis of the number of rows in the data frame, so ensure that the observations in <code>data</code> are unique before calling <code>scatterplotter</code>.</p></dd>
 
 
 <dt>...</dt>
