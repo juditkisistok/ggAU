@@ -59,7 +59,9 @@
 <span>  col_style <span class="op">=</span> <span class="st">"light"</span>,</span>
 <span>  fill_style <span class="op">=</span> <span class="st">"light"</span>,</span>
 <span>  display_n <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>  violin_alpha <span class="op">=</span> <span class="fl">0.5</span></span>
+<span>  violin_alpha <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>  facet_val <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -132,6 +134,14 @@ Default is <code>NA</code>, and in this case, no comparisons are made.</p></dd>
 
 <dt>violin_alpha</dt>
 <dd><p>num, opacity of the violin plot. Default is <code>0.5</code>.</p></dd>
+
+
+<dt>facet_val</dt>
+<dd><p>string, the name of the column to facet by. Default is <code>NA</code>.</p></dd>
+
+
+<dt>...</dt>
+<dd><p>other parameters passed into <code>stat_cor()</code> or <code>facet_wrap()</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

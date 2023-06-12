@@ -60,7 +60,9 @@ and calculates the associated Fisher's test p-value on the count data.</p>
 <span>  labcol <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  display_n <span class="op">=</span> <span class="cn">T</span>,</span>
 <span>  legend_lab <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  labels <span class="op">=</span> <span class="cn">NA</span></span>
+<span>  labels <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  filter_col <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  filter_val <span class="op">=</span> <span class="cn">NA</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -125,6 +127,14 @@ If unspecified, the bars follow the order of the dataframe.</p></dd>
 
 <dt>labels</dt>
 <dd><p>vector, the legend annotations. Default is the unique values in <code>y_val</code>.</p></dd>
+
+
+<dt>filter_col</dt>
+<dd><p>string, the name of the column to filter <code>data</code> by. Default is <code>NA</code>.</p></dd>
+
+
+<dt>filter_val</dt>
+<dd><p>string or list, the entries to keep in <code>filter_col</code>. Default is <code>NA</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

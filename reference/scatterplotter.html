@@ -72,6 +72,7 @@ and fit a linear or loess line to the data.</p>
 <span>  pointsize <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  point_alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  display_n <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  facet_val <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -173,8 +174,12 @@ continuous color scale. Default is <code>TRUE</code>.</p></dd>
 <dd><p>boolean, if <code>TRUE</code>, the plot displays the sample size appended to the title. Default is <code>TRUE</code>. The sample size is calculated on the basis of the number of rows in the data frame, so ensure that the observations in <code>data</code> are unique before calling <code>scatterplotter</code>.</p></dd>
 
 
+<dt>facet_val</dt>
+<dd><p>string, the name of the column to facet by. Default is <code>NA</code>.</p></dd>
+
+
 <dt>...</dt>
-<dd><p>other parameters passed into <code>stat_cor()</code>.</p></dd>
+<dd><p>other parameters passed into <code>stat_cor()</code> or <code>facet_wrap()</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
