@@ -19,7 +19,8 @@
 #' @param display_n boolean, if `TRUE`, the plot displays the sample size appended to the title. Default is `TRUE`.
 #' @param legend_lab string, the legend title. Default is the string passed into `y_val`.
 #' @param labels vector, the legend annotations. Default is the unique values in `y_val`.
-#'
+#' @param filter_col string, the name of the column to filter `data` by. Default is `NA`.
+#' @param filter_val string or list, the entries to keep in `filter_col`. Default is `NA`.
 #' @return A ggplot object.
 #' @export
 #'
@@ -32,14 +33,22 @@
 barplotter = function(data, x_val, y_val, order = NA, scale_labs = ggplot2::waiver(),
                       pct = T, style = "light", colors = NA, y_lab = ggplot2::waiver(),
                       x_lab = ggplot2::waiver(), title = "", labcol = "black", display_n = T,
-                      legend_lab = NA, labels = NA) {
+                      legend_lab = NA, labels = NA, filter_col = NA, filter_val = NA) {
+
+  if (!is.na(filter_col)) {
+    data = data %>%
+      dplyr::filter(get(filter_col) %in% filter_val)
+  }
+
   data = data %>%
     dplyr::select(dplyr::all_of(!!x_val), dplyr::all_of(!!y_val)) %>%
     dplyr::group_by(get(x_val), get(y_val)) %>%
     dplyr::count() %>%
     dplyr::group_by(`get(x_val)`) %>%
-    dplyr::mutate(x = signif(n / sum(n) * 100, digits = 3)) %>%
-    purrr::set_names(c(x_val, y_val, 'number', 'percent'))
+    dplyr::mutate(x = signif(n / sum(n) * 100, digits = 3))
+
+  data = data %>%
+      purrr::set_names(c(x_val, y_val, 'number', 'percent'))
 
   fishers_df = data %>%
     tidyr::pivot_wider(values_from = number, names_from = y_val,

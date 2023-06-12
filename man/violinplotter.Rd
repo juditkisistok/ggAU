@@ -21,7 +21,9 @@ violinplotter(
   col_style = "light",
   fill_style = "light",
   display_n = T,
-  violin_alpha = 0.5
+  violin_alpha = 0.5,
+  facet_val = NA,
+  ...
 )
 }
 \arguments{
@@ -59,6 +61,10 @@ Default is \code{NA}, and in this case, no comparisons are made.}
 \item{display_n}{boolean, if \code{TRUE}, the plot displays the sample size appended to the title. Default is \code{TRUE}.}
 
 \item{violin_alpha}{num, opacity of the violin plot. Default is \code{0.5}.}
+
+\item{facet_val}{string, the name of the column to facet by. Default is \code{NA}.}
+
+\item{...}{other parameters passed into \code{stat_cor()} or \code{facet_wrap()}.}
 }
 \value{
 A ggplot object.

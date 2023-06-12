@@ -28,6 +28,7 @@ scatterplotter(
   pointsize = 1,
   point_alpha = 1,
   display_n = T,
+  facet_val = NA,
   ...
 )
 }
@@ -81,7 +82,9 @@ continuous color scale. Default is \code{TRUE}.}
 
 \item{display_n}{boolean, if \code{TRUE}, the plot displays the sample size appended to the title. Default is \code{TRUE}. The sample size is calculated on the basis of the number of rows in the data frame, so ensure that the observations in \code{data} are unique before calling \code{scatterplotter}.}
 
-\item{...}{other parameters passed into \code{stat_cor()}.}
+\item{facet_val}{string, the name of the column to facet by. Default is \code{NA}.}
+
+\item{...}{other parameters passed into \code{stat_cor()} or \code{facet_wrap()}.}
 }
 \value{
 A ggplot object.

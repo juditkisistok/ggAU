@@ -30,7 +30,8 @@
 #' @param labels vector, the legend annotations. Default is the unique values in `y_val`.
 #' @param legend_lab string, the legend title. Default is `color`.
 #' @param display_n boolean, if `TRUE`, the plot displays the sample size appended to the title. Default is `TRUE`. The sample size is calculated on the basis of the number of rows in the data frame, so ensure that the observations in `data` are unique before calling `scatterplotter`.
-#' @param ... other parameters passed into `stat_cor()`.
+#' @param facet_val string, the name of the column to facet by. Default is `NA`.
+#' @param ... other parameters passed into `stat_cor()` or `facet_wrap()`.
 #'
 #' @return A ggplot object.
 #' @export
@@ -48,7 +49,7 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
                           corr_method = "pearson", alternative = "two.sided",
                           fit_method = "glm", se = FALSE, labels = NA,
                           formula = "y ~ x", pointsize = 1, point_alpha = 1,
-                          display_n = T, ...) {
+                          display_n = T, facet_val = NA, ...) {
 
   # Default to au_colors if the user doesn't specify a color vector
   # Otherwise, use the custom colors
@@ -122,6 +123,11 @@ scatterplotter = function(data, x_val, y_val, col_val = NA, style = "light",
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5),
                    plot.subtitle = ggplot2::element_text(hjust = 0.5)) +
     ggplot2::labs(colour = legend_lab)
+
+  if (!is.na(facet_val)) {
+    p = p +
+      ggplot2::facet_wrap(facet_val, ...)
+  }
 
   return (p)
 }

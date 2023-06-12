@@ -19,7 +19,9 @@ barplotter(
   labcol = "black",
   display_n = T,
   legend_lab = NA,
-  labels = NA
+  labels = NA,
+  filter_col = NA,
+  filter_val = NA
 )
 }
 \arguments{
@@ -53,6 +55,10 @@ If unspecified, the bars follow the order of the dataframe.}
 \item{legend_lab}{string, the legend title. Default is the string passed into \code{y_val}.}
 
 \item{labels}{vector, the legend annotations. Default is the unique values in \code{y_val}.}
+
+\item{filter_col}{string, the name of the column to filter \code{data} by. Default is \code{NA}.}
+
+\item{filter_val}{string or list, the entries to keep in \code{filter_col}. Default is \code{NA}.}
 }
 \value{
 A ggplot object.

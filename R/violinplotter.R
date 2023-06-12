@@ -20,7 +20,8 @@
 #' @param fill_style string, palette style to be used for `scale_fill_au`. Default is `light`. Style is only applied if `fill_vec` remains `NA`.
 #' @param violin_alpha num, opacity of the violin plot. Default is `0.5`.
 #' @param display_n boolean, if `TRUE`, the plot displays the sample size appended to the title. Default is `TRUE`.
-#'
+#' @param facet_val string, the name of the column to facet by. Default is `NA`.
+#' @param ... other parameters passed into `stat_cor()` or `facet_wrap()`.
 #' @return A ggplot object.
 #' @export
 #'
@@ -34,8 +35,8 @@
 violinplotter = function(data, x_val, y_val, x_lab = x_val, y_lab = y_val, title = "",
                          filter = F, filter_col = NA, filter_val = NA,
                          comp_vec = NA, col_vec = NA, scale_labs = ggplot2::waiver(),
-                         fill_vec = NA, col_style = "light",
-                         fill_style = "light", display_n = T, violin_alpha = 0.5) {
+                         fill_vec = NA, col_style = "light", fill_style = "light",
+                         display_n = T, violin_alpha = 0.5, facet_val = NA, ...) {
 
   # Default to au_colors if the user doesn't specify a fill vector
   # Otherwise, use the custom colors
@@ -85,6 +86,11 @@ violinplotter = function(data, x_val, y_val, x_lab = x_val, y_lab = y_val, title
 
   if (!is.na(comp_vec[1])) {
     p = p + ggpubr::stat_compare_means(comparisons = comp_vec)
+  }
+
+  if (!is.na(facet_val)) {
+    p = p +
+      ggplot2::facet_wrap(facet_val, ...)
   }
 
   return (p)
