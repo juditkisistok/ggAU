@@ -46,7 +46,7 @@ volcanoplotter = function(data, x_val, y_val, nonsig_col = "grey", pointsize = 1
                           label_col = NA, lab_size = 3, dirs = "y", nudge_x1 = 10,
                           nudge_x2 = -10, nudge_y1 = 0, nudge_y2 = 0, lab_bordersize = NA,
                           fillcol =  scales::alpha(c("white"), 0), brk = ggplot2::waiver(),
-                          display_n = T, lim = NULL, ...) {
+                          lim = NULL, ...) {
 
   p = ggplot2::ggplot(data) +
       # draw the base including all points

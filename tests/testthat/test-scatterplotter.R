@@ -63,3 +63,4 @@ test_that("legend key labeling works", {
 
   expect_equal(g$plot$scales$scales[[1]]$labels, c("one", "two", "three"))
 })
+

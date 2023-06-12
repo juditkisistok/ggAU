@@ -26,7 +26,8 @@ test_that("fill aesthetic is correct for custom palettes", {
 test_that("title and labels are correct", {
   test_labs = c("Test title", "Test X", "Test Y")
   p = barplotter(data = iris, x_val =  "Species", y_val = "Petal_mean",
-                    title = test_labs[1], x_lab = test_labs[2], y_lab = test_labs[3])
+                    title = test_labs[1], x_lab = test_labs[2], y_lab = test_labs[3],
+                    display_n = F)
 
   plot_labs = c(p[["labels"]][["title"]],
                 p[["labels"]][["x"]],

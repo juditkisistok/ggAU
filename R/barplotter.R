@@ -34,7 +34,7 @@ barplotter = function(data, x_val, y_val, order = NA, scale_labs = ggplot2::waiv
                       x_lab = ggplot2::waiver(), title = "", labcol = "black", display_n = T,
                       legend_lab = NA, labels = NA) {
   data = data %>%
-    dplyr::select(!!x_val, !!y_val) %>%
+    dplyr::select(dplyr::all_of(!!x_val), dplyr::all_of(!!y_val)) %>%
     dplyr::group_by(get(x_val), get(y_val)) %>%
     dplyr::count() %>%
     dplyr::group_by(`get(x_val)`) %>%

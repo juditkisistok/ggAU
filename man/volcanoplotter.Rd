@@ -29,7 +29,6 @@ volcanoplotter(
   lab_bordersize = NA,
   fillcol = scales::alpha(c("white"), 0),
   brk = ggplot2::waiver(),
-  display_n = T,
   lim = NULL,
   ...
 )
